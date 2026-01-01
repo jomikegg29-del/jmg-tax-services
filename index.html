@@ -6,7 +6,7 @@
     <title>JMG Tax Service - Ayudando a Nuestra Comunidad</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Open Sans', sans-serif; scroll-behavior: smooth; }
         h1, h2, h3, h4, .brand-font { font-family: 'Montserrat', sans-serif; }
@@ -15,7 +15,15 @@
             background-size: cover;
             background-position: center;
         }
-        .logo-svg { height: 40px; width: auto; }
+        /* Enhanced Logo Visibility */
+        .logo-svg { 
+            height: 52px; 
+            width: auto; 
+            filter: drop-shadow(0px 2px 3px rgba(0,0,0,0.05));
+        }
+        @media (max-width: 640px) {
+            .logo-svg { height: 42px; }
+        }
         .feature-card { transition: all 0.3s ease; overflow: hidden; }
         .feature-card:hover { transform: translateY(-8px); }
         .gradient-border {
@@ -39,26 +47,34 @@
 <body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen">
 
     <!-- Navigation -->
-    <nav class="bg-white shadow-md sticky top-0 z-50">
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
+            <div class="flex justify-between h-20 items-center">
                 <div class="flex items-center">
-                    <a href="#" class="flex items-center gap-2">
-                        <svg class="logo-svg" viewBox="0 0 450 150" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="75" cy="75" r="60" fill="#1e3a8a" />
-                            <path d="M75 35 L105 75 L90 75 L90 110 L60 110 L60 75 L45 75 Z" fill="white" />
-                            <text x="75" y="88" font-family="Arial" font-size="24" font-weight="bold" fill="#10b981" text-anchor="middle">$</text>
-                            <text x="150" y="75" font-family="Montserrat, sans-serif" font-size="55" font-weight="900" fill="#1e3a8a">JMG <tspan fill="#10b981">TAX</tspan></text>
-                            <text x="150" y="115" font-family="Montserrat, sans-serif" font-size="28" font-weight="400" fill="#64748b" letter-spacing="3">SERVICE</text>
+                    <a href="#" class="flex items-center gap-2 hover:opacity-95 transition-opacity">
+                        <!-- Updated Logo with better sizing and visibility -->
+                        <svg class="logo-svg" viewBox="0 0 480 150" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <filter id="textShadow" x="0" y="0" width="200%" height="200%">
+                                    <feOffset result="offOut" in="SourceAlpha" dx="1" dy="1" />
+                                    <feGaussianBlur result="blurOut" in="offOut" stdDeviation="1" />
+                                    <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+                                </filter>
+                            </defs>
+                            <circle cx="75" cy="75" r="65" fill="#1e3a8a" />
+                            <path d="M75 30 L110 75 L90 75 L90 120 L60 120 L60 75 L40 75 Z" fill="white" />
+                            <text x="75" y="88" font-family="Arial" font-size="28" font-weight="900" fill="#10b981" text-anchor="middle">$</text>
+                            <text x="155" y="78" font-family="Montserrat, sans-serif" font-size="62" font-weight="900" fill="#1e3a8a">JMG <tspan fill="#10b981">TAX</tspan></text>
+                            <text x="155" y="118" font-family="Montserrat, sans-serif" font-size="30" font-weight="600" fill="#475569" letter-spacing="4">SERVICE</text>
                         </svg>
                     </a>
                 </div>
-                <div class="flex items-center space-x-2 sm:space-x-4">
-                    <a href="#promotions" class="hidden lg:block text-gray-600 hover:text-blue-900 font-semibold" data-i18n="nav_offers">Special Offers</a>
-                    <a href="https://form.jotform.com/253015681932860" target="_blank" class="bg-emerald-500 text-white px-3 py-2 sm:px-4 rounded-lg text-sm font-bold hover:bg-emerald-600 transition flex items-center gap-2">
+                <div class="flex items-center space-x-3 sm:space-x-6">
+                    <a href="#promotions" class="hidden md:block text-blue-900 hover:text-emerald-600 font-bold transition-colors" data-i18n="nav_offers">Special Offers</a>
+                    <a href="https://form.jotform.com/253015681932860" target="_blank" class="bg-emerald-500 text-white px-5 py-2.5 rounded-xl text-sm font-black hover:bg-emerald-600 transition shadow-md flex items-center gap-2 transform active:scale-95">
                         <i class="fas fa-calendar-alt"></i> <span data-i18n="nav_book">Book Now</span>
                     </a>
-                    <button id="langToggle" class="bg-gray-100 hover:bg-gray-200 px-2 py-1 sm:px-3 rounded-full text-xs sm:text-sm font-bold text-blue-900 border border-gray-300">
+                    <button id="langToggle" class="bg-blue-50 hover:bg-blue-100 px-3 py-1.5 rounded-full text-xs font-black text-blue-900 border-2 border-blue-200 transition-all">
                         <span id="langLabel">ESPAÑOL</span>
                     </button>
                 </div>
@@ -67,63 +83,59 @@
     </nav>
 
     <!-- Hero Section -->
-    <header class="hero-bg text-white py-20 md:py-32">
+    <header class="hero-bg text-white py-24 md:py-36">
         <div class="max-w-7xl mx-auto px-4 text-center">
-            <div class="inline-block bg-emerald-500 text-white px-4 py-1 rounded-full text-sm font-bold shadow-lg mb-6 animate-pulse">
-                <i class="fas fa-flag-usa"></i> <span data-i18n="hero_badge">Serving Hispanic Families in all 50 States</span>
+            <div class="inline-block bg-emerald-500 text-white px-5 py-1.5 rounded-full text-sm font-black shadow-xl mb-8 animate-pulse border-2 border-emerald-300">
+                <i class="fas fa-flag-usa mr-2"></i> <span data-i18n="hero_badge">Serving Hispanic Families in all 50 States</span>
             </div>
-            <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight" data-i18n="hero_title">
+            <h1 class="text-5xl md:text-7xl font-black mb-8 leading-tight tracking-tight" data-i18n="hero_title">
                 Helping Our Latino Community <br>With Their Taxes.
             </h1>
-            <p class="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto mb-10" data-i18n="hero_subtitle">
+            <p class="text-xl md:text-3xl text-blue-50 max-w-4xl mx-auto mb-12 font-medium" data-i18n="hero_subtitle">
                 Hablamos Español. Get your maximum refund with professional service that understands your family's needs.
             </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="https://form.jotform.com/253015681932860" target="_blank" class="bg-yellow-400 text-blue-900 px-10 py-5 rounded-lg font-bold text-xl hover:bg-yellow-300 transition shadow-xl transform hover:-translate-y-1">
+            <div class="flex flex-col sm:flex-row justify-center gap-5">
+                <a href="https://form.jotform.com/253015681932860" target="_blank" class="bg-yellow-400 text-blue-900 px-12 py-6 rounded-2xl font-black text-2xl hover:bg-yellow-300 transition shadow-2xl transform hover:-translate-y-1 active:translate-y-0">
                     <i class="fas fa-file-invoice-dollar mr-2"></i> <span data-i18n="btn_book">Start My Refund</span>
                 </a>
-                <a href="tel:7608198216" class="bg-white text-blue-900 px-10 py-5 rounded-lg font-bold text-xl hover:bg-blue-50 transition shadow-xl">
-                    <i class="fas fa-phone mr-2"></i> (760) 819-8216
+                <a href="tel:7608198216" class="bg-white text-blue-900 px-12 py-6 rounded-2xl font-black text-2xl hover:bg-blue-50 transition shadow-2xl border-2 border-blue-100">
+                    <i class="fas fa-phone mr-2 text-emerald-500"></i> (760) 819-8216
                 </a>
             </div>
         </div>
     </header>
 
     <!-- Community Connection Section -->
-    <section class="py-16 bg-white">
+    <section class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 <div>
-                    <h2 class="text-3xl md:text-4xl font-black text-blue-900 mb-6" data-i18n="comunidad_h2">Professional Care for Hispanic Families</h2>
-                    <p class="text-gray-600 text-lg mb-6 leading-relaxed" data-i18n="comunidad_p1">
+                    <h2 class="text-4xl md:text-5xl font-black text-blue-900 mb-8 leading-tight" data-i18n="comunidad_h2">Professional Care for Hispanic Families</h2>
+                    <p class="text-gray-600 text-xl mb-8 leading-relaxed" data-i18n="comunidad_p1">
                         At JMG Tax Service, we specialize in helping our community navigate the complexities of the US tax system. Whether you are filing with a Social Security Number or an ITIN, we are here to ensure you get every dollar you deserve.
                     </p>
-                    <div class="space-y-4 mb-8">
-                        <div class="flex items-start gap-4">
-                            <div class="bg-emerald-100 p-2 rounded-lg text-emerald-600 mt-1">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
+                        <div class="bg-blue-50 p-6 rounded-2xl border-l-4 border-emerald-500 shadow-sm">
+                            <div class="text-emerald-600 text-2xl mb-3">
                                 <i class="fas fa-globe-americas"></i>
                             </div>
-                            <div>
-                                <h4 class="font-bold text-blue-900" data-i18n="comunidad_feat1_t">Available in 50 States</h4>
-                                <p class="text-gray-500 text-sm" data-i18n="comunidad_feat1_d">No matter where you live in the USA, we can help you virtually.</p>
-                            </div>
+                            <h4 class="font-black text-blue-900 text-lg mb-1" data-i18n="comunidad_feat1_t">Available in 50 States</h4>
+                            <p class="text-gray-500 text-sm font-semibold" data-i18n="comunidad_feat1_d">Virtual help across the USA.</p>
                         </div>
-                        <div class="flex items-start gap-4">
-                            <div class="bg-emerald-100 p-2 rounded-lg text-emerald-600 mt-1">
+                        <div class="bg-blue-50 p-6 rounded-2xl border-l-4 border-emerald-500 shadow-sm">
+                            <div class="text-emerald-600 text-2xl mb-3">
                                 <i class="fas fa-comments"></i>
                             </div>
-                            <div>
-                                <h4 class="font-bold text-blue-900" data-i18n="comunidad_feat2_t">100% Bilingual Service</h4>
-                                <p class="text-gray-500 text-sm" data-i18n="comunidad_feat2_d">Explanation of every form in clear Spanish or English.</p>
-                            </div>
+                            <h4 class="font-black text-blue-900 text-lg mb-1" data-i18n="comunidad_feat2_t">Bilingual Service</h4>
+                            <p class="text-gray-500 text-sm font-semibold" data-i18n="comunidad_feat2_d">Clear Spanish or English.</p>
                         </div>
                     </div>
                 </div>
                 <div class="relative">
-                    <!-- Image of Tax Professional with family -->
-                    <img src="https://images.unsplash.com/photo-1556745753-b2904692b3cd?auto=format&fit=crop&w=800&q=80" alt="Hispanic Family with Tax Professional" class="rounded-3xl shadow-2xl img-card">
-                    <div class="absolute -bottom-6 -left-6 bg-yellow-400 p-6 rounded-2xl shadow-xl hidden lg:block">
-                        <p class="text-blue-900 font-black text-2xl" data-i18n="badge_confianza">Confianza Total</p>
+                    <img src="https://images.unsplash.com/photo-1556745753-b2904692b3cd?auto=format&fit=crop&w=800&q=80" alt="Hispanic Family with Tax Professional" class="rounded-[2.5rem] shadow-2xl img-card w-full">
+                    <div class="absolute -bottom-8 -left-8 bg-yellow-400 p-8 rounded-3xl shadow-2xl border-4 border-white hidden lg:block">
+                        <p class="text-blue-900 font-black text-3xl italic" data-i18n="badge_confianza">Confianza Total</p>
+                        <p class="text-blue-800/80 font-bold text-xs uppercase tracking-tighter mt-1">Nuestros expertos te cuidan</p>
                     </div>
                 </div>
             </div>
@@ -131,75 +143,85 @@
     </section>
 
     <!-- Latin Banner / Quick Links -->
-    <section class="latin-banner py-10">
-        <div class="max-w-7xl mx-auto px-4 flex flex-wrap justify-around gap-8 text-white text-center">
-            <div class="flex flex-col items-center">
-                <i class="fas fa-id-card text-4xl mb-2 text-emerald-400"></i>
-                <span class="font-bold uppercase tracking-wider text-sm" data-i18n="tag_itin">Expertos en ITIN</span>
+    <section class="latin-banner py-12">
+        <div class="max-w-7xl mx-auto px-4 flex flex-wrap justify-around gap-10 text-white text-center">
+            <div class="flex flex-col items-center group cursor-default">
+                <div class="w-20 h-20 bg-white/10 rounded-full flex items-center justify-center mb-4 transition-transform group-hover:scale-110">
+                    <i class="fas fa-id-card text-4xl text-emerald-400"></i>
+                </div>
+                <span class="font-black uppercase tracking-wider text-sm" data-i18n="tag_itin">Expertos en ITIN</span>
             </div>
-            <div class="flex flex-col items-center">
-                <i class="fas fa-users text-4xl mb-2 text-emerald-400"></i>
-                <span class="font-bold uppercase tracking-wider text-sm" data-i18n="tag_fam">Créditos por Hijos</span>
+            <div class="flex flex-col items-center group cursor-default">
+                <div class="w-20 h-20 bg-white/10 rounded-full flex items-center justify-center mb-4 transition-transform group-hover:scale-110">
+                    <i class="fas fa-users text-4xl text-emerald-400"></i>
+                </div>
+                <span class="font-black uppercase tracking-wider text-sm" data-i18n="tag_fam">Créditos por Hijos</span>
             </div>
-            <div class="flex flex-col items-center">
-                <i class="fas fa-laptop-house text-4xl mb-2 text-emerald-400"></i>
-                <span class="font-bold uppercase tracking-wider text-sm" data-i18n="tag_virtual">Servicio 100% Virtual</span>
+            <div class="flex flex-col items-center group cursor-default">
+                <div class="w-20 h-20 bg-white/10 rounded-full flex items-center justify-center mb-4 transition-transform group-hover:scale-110">
+                    <i class="fas fa-laptop-house text-4xl text-emerald-400"></i>
+                </div>
+                <span class="font-black uppercase tracking-wider text-sm" data-i18n="tag_virtual">Servicio 100% Virtual</span>
             </div>
         </div>
     </section>
 
     <!-- PROMOTIONAL SECTION -->
-    <section id="promotions" class="py-20 bg-gray-50 overflow-hidden">
+    <section id="promotions" class="py-24 bg-gray-50 overflow-hidden">
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-black text-blue-900 uppercase tracking-tighter" data-i18n="promo_main_title">Bigger Refunds. <span class="text-emerald-500">Better Service.</span></h2>
-                <div class="gradient-border"></div>
-                <p class="text-gray-600 font-semibold" data-i18n="promo_subtitle">Specializing in Personal & Small Business Tax Solutions</p>
+                <h2 class="text-4xl md:text-6xl font-black text-blue-900 uppercase tracking-tighter leading-none mb-4" data-i18n="promo_main_title">Bigger Refunds. <span class="text-emerald-500">Better Service.</span></h2>
+                <div class="gradient-border mb-6"></div>
+                <p class="text-gray-500 font-bold text-xl" data-i18n="promo_subtitle">Specializing in Personal & Small Business Tax Solutions</p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-stretch">
                 <!-- Promo Graphic Card -->
-                <div class="bg-blue-900 rounded-3xl p-8 text-white relative flex flex-col justify-between shadow-2xl border-b-8 border-emerald-500">
-                    <div class="absolute top-4 right-4 bg-yellow-400 text-blue-900 font-black px-4 py-1 rounded-full text-xs animate-bounce" data-i18n="promo_tag">
+                <div class="bg-blue-900 rounded-[3rem] p-10 text-white relative flex flex-col justify-between shadow-2xl border-b-[12px] border-emerald-500 group overflow-hidden">
+                    <div class="absolute -top-10 -right-10 w-40 h-40 bg-emerald-500/20 rounded-full blur-3xl group-hover:bg-emerald-500/30 transition-all"></div>
+                    <div class="absolute top-6 right-6 bg-yellow-400 text-blue-900 font-black px-6 py-2 rounded-full text-sm animate-bounce shadow-lg z-10" data-i18n="promo_tag">
                         2026 FILING OPEN
                     </div>
-                    <div>
-                        <h3 class="text-4xl font-extrabold mb-4 italic leading-none text-punch" data-i18n="promo_maximize">MAXIMIZE YOUR <br><span class="text-emerald-400">REFUND</span></h3>
-                        <p class="text-blue-100 mb-8 max-w-sm" data-i18n="promo_desc">We find the deductions and credits others miss. Licensed in all 50 states, serving you virtually.</p>
+                    <div class="relative z-10">
+                        <h3 class="text-5xl font-black mb-6 italic leading-none text-punch tracking-tight" data-i18n="promo_maximize">MAXIMIZE YOUR <br><span class="text-emerald-400">REFUND</span></h3>
+                        <p class="text-blue-100 mb-10 text-lg leading-relaxed max-w-sm" data-i18n="promo_desc">We find the deductions and credits others miss. Licensed in all 50 states, serving you virtually.</p>
                         
-                        <div class="space-y-4 mb-8">
-                            <div class="flex items-center gap-3">
-                                <div class="w-8 h-8 rounded-full bg-emerald-500 flex items-center justify-center text-xs">
+                        <div class="space-y-5 mb-10">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-emerald-500/20 border-2 border-emerald-500 flex items-center justify-center text-emerald-400">
                                     <i class="fas fa-check"></i>
                                 </div>
-                                <span class="font-bold" data-i18n="promo_feat_1">100% Virtual & Secure</span>
+                                <span class="font-black text-lg" data-i18n="promo_feat_1">100% Virtual & Secure</span>
                             </div>
-                            <div class="flex items-center gap-3">
-                                <div class="w-8 h-8 rounded-full bg-emerald-500 flex items-center justify-center text-xs">
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-emerald-500/20 border-2 border-emerald-500 flex items-center justify-center text-emerald-400">
                                     <i class="fas fa-check"></i>
                                 </div>
-                                <span class="font-bold" data-i18n="promo_feat_2">Hablamos Español</span>
+                                <span class="font-black text-lg" data-i18n="promo_feat_2">Hablamos Español</span>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="bg-white/10 p-4 rounded-2xl backdrop-blur-sm border border-white/20">
-                        <p class="text-sm font-bold text-emerald-400 uppercase tracking-widest mb-1" data-i18n="referral_title">REFERRAL BONUS</p>
-                        <p class="text-xs" data-i18n="referral_desc">Refer a friend and get a <span class="text-yellow-400 font-bold">$100 Cash Bonus Credit</span> on your prep fee!</p>
+                    <div class="bg-white/10 p-6 rounded-3xl backdrop-blur-md border border-white/20 shadow-inner">
+                        <p class="text-xs font-black text-emerald-400 uppercase tracking-[0.2em] mb-2" data-i18n="referral_title">REFERRAL BONUS</p>
+                        <p class="text-sm font-semibold leading-relaxed" data-i18n="referral_desc">Refer a friend and get a <span class="text-yellow-400 font-black underline underline-offset-4">$100 Cash Bonus Credit</span> on your prep fee!</p>
                     </div>
                 </div>
 
                 <!-- Call to Action Card -->
-                <div class="bg-white rounded-3xl p-8 border-2 border-gray-100 flex flex-col justify-center text-center lg:text-left shadow-lg">
-                    <div class="mb-6 p-6 bg-blue-900 rounded-2xl border-l-4 border-yellow-400 shadow-lg">
-                        <h4 class="text-2xl font-black text-yellow-400 italic mb-2" data-i18n="cash_title">NEED CASH NOW?</h4>
-                        <p class="text-white text-3xl font-bold" data-i18n="cash_amount">CASH ADVANCE <br>UP TO <span class="text-emerald-400">$7,000</span></p>
-                        <p class="text-blue-200 text-xs mt-2 uppercase tracking-widest font-bold" data-i18n="cash_disclaimer">* For those who qualify. Ask for details.</p>
+                <div class="bg-white rounded-[3rem] p-10 border-4 border-gray-100 flex flex-col justify-center shadow-xl">
+                    <div class="mb-8 p-10 bg-blue-900 rounded-[2.5rem] border-l-[10px] border-yellow-400 shadow-2xl relative overflow-hidden">
+                        <div class="absolute top-0 right-0 p-4 text-white/5 text-8xl">
+                            <i class="fas fa-hand-holding-usd"></i>
+                        </div>
+                        <h4 class="text-3xl font-black text-yellow-400 italic mb-3 tracking-tighter" data-i18n="cash_title">NEED CASH NOW?</h4>
+                        <p class="text-white text-4xl md:text-5xl font-black leading-tight" data-i18n="cash_amount">CASH ADVANCE <br>UP TO <span class="text-emerald-500">$7,000</span></p>
+                        <p class="text-blue-200 text-xs mt-4 uppercase tracking-[0.2em] font-black" data-i18n="cash_disclaimer">* For those who qualify. Ask for details.</p>
                     </div>
                     
-                    <p class="text-gray-600 mb-8 text-lg" data-i18n="cta_desc">Our expert team ensures your taxes are done right the first time, getting you the funds you need when you need them.</p>
+                    <p class="text-gray-500 mb-10 text-xl font-medium leading-relaxed" data-i18n="cta_desc">Our expert team ensures your taxes are done right the first time, getting you the funds you need when you need them.</p>
 
-                    <a href="https://form.jotform.com/253015681932860" target="_blank" class="bg-emerald-500 hover:bg-emerald-600 text-white font-black py-5 rounded-2xl text-xl shadow-xl transition-all transform hover:-translate-y-1 block text-center" data-i18n="btn_consult">
+                    <a href="https://form.jotform.com/253015681932860" target="_blank" class="bg-emerald-500 hover:bg-emerald-600 text-white font-black py-6 rounded-3xl text-2xl shadow-2xl transition-all transform hover:-translate-y-1 active:translate-y-0 block text-center border-b-8 border-emerald-700 active:border-b-0" data-i18n="btn_consult">
                         BOOK YOUR CONSULTATION <i class="fas fa-arrow-right ml-2"></i>
                     </a>
                 </div>
@@ -208,55 +230,96 @@
     </section>
 
     <!-- Testimonials / Social Proof -->
-    <section class="py-20 bg-white">
+    <section class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 text-center">
-            <h2 class="text-3xl font-black text-blue-900 mb-12" data-i18n="testi_title">Trusted by Families Nationwide</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-gray-50 p-8 rounded-3xl italic text-gray-600">
-                    "Excellent service! They explained everything in Spanish and helped me with my ITIN. I got a much bigger refund than last year."
-                    <p class="mt-4 font-bold not-italic text-blue-900">— Maria G., California</p>
+            <h2 class="text-4xl md:text-5xl font-black text-blue-900 mb-16" data-i18n="testi_title">Trusted by Families Nationwide</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="bg-blue-50/50 p-10 rounded-[2.5rem] relative group border-2 border-transparent hover:border-blue-100 transition-all">
+                    <div class="text-emerald-500 text-4xl mb-6"><i class="fas fa-quote-left"></i></div>
+                    <p class="italic text-gray-700 text-lg mb-8 leading-relaxed font-medium">"Excellent service! They explained everything in Spanish and helped me with my ITIN. I got a much bigger refund than last year."</p>
+                    <div class="mt-auto pt-6 border-t border-blue-100">
+                        <p class="font-black not-italic text-blue-900 text-lg">— Maria G., California</p>
+                    </div>
                 </div>
-                <div class="bg-gray-50 p-8 rounded-3xl italic text-gray-600">
-                    "Very professional and fast. I love that I could do everything from my phone since I work long hours."
-                    <p class="mt-4 font-bold not-italic text-blue-900">— Juan R., Texas</p>
+                <div class="bg-blue-900 p-10 rounded-[2.5rem] relative text-white shadow-2xl transform scale-105 z-10">
+                    <div class="text-emerald-400 text-4xl mb-6"><i class="fas fa-quote-left"></i></div>
+                    <p class="italic text-blue-50 text-lg mb-8 leading-relaxed font-medium">"Very professional and fast. I love that I could do everything from my phone since I work long hours."</p>
+                    <div class="mt-auto pt-6 border-t border-white/10">
+                        <p class="font-black not-italic text-emerald-400 text-lg">— Juan R., Texas</p>
+                    </div>
                 </div>
-                <div class="bg-gray-50 p-8 rounded-3xl italic text-gray-600">
-                    "Helping my family with our taxes for 3 years now. They really care about the Latino community."
-                    <p class="mt-4 font-bold not-italic text-blue-900">— Elena V., Florida</p>
+                <div class="bg-blue-50/50 p-10 rounded-[2.5rem] relative border-2 border-transparent hover:border-blue-100 transition-all">
+                    <div class="text-emerald-500 text-4xl mb-6"><i class="fas fa-quote-left"></i></div>
+                    <p class="italic text-gray-700 text-lg mb-8 leading-relaxed font-medium">"Helping my family with our taxes for 3 years now. They really care about the Latino community."</p>
+                    <div class="mt-auto pt-6 border-t border-blue-100">
+                        <p class="font-black not-italic text-blue-900 text-lg">— Elena V., Florida</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white pt-16 pb-8 mt-auto">
-        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-12 mb-12 text-center md:text-left">
+    <footer class="bg-slate-950 text-white pt-24 pb-12 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-16 mb-16 text-center md:text-left">
             <div>
-                <h4 class="text-lg font-bold mb-4 text-emerald-400 uppercase tracking-widest" data-i18n="footer_brand">JMG Tax Service</h4>
-                <p class="text-gray-400 leading-relaxed" data-i18n="footer_desc">Professional tax preparation for the Hispanic community. Serving all 50 states virtually with bank-level security.</p>
+                <!-- Footer Logo -->
+                <div class="mb-6 flex justify-center md:justify-start">
+                    <svg class="h-12 w-auto" viewBox="0 0 450 150" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="75" cy="75" r="60" fill="#1e3a8a" />
+                        <path d="M75 35 L105 75 L90 75 L90 110 L60 110 L60 75 L45 75 Z" fill="white" />
+                        <text x="75" y="88" font-family="Arial" font-size="24" font-weight="bold" fill="#10b981" text-anchor="middle">$</text>
+                        <text x="150" y="75" font-family="Montserrat, sans-serif" font-size="55" font-weight="900" fill="white">JMG <tspan fill="#10b981">TAX</tspan></text>
+                        <text x="150" y="115" font-family="Montserrat, sans-serif" font-size="28" font-weight="400" fill="#94a3b8" letter-spacing="3">SERVICE</text>
+                    </svg>
+                </div>
+                <p class="text-gray-400 leading-relaxed text-lg" data-i18n="footer_desc">Professional tax preparation for the Hispanic community. Serving all 50 states virtually with bank-level security.</p>
+                <div class="flex gap-4 mt-8 justify-center md:justify-start">
+                    <a href="#" class="w-12 h-12 rounded-full bg-slate-900 flex items-center justify-center hover:bg-blue-900 transition-colors text-xl"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="w-12 h-12 rounded-full bg-slate-900 flex items-center justify-center hover:bg-blue-900 transition-colors text-xl"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="w-12 h-12 rounded-full bg-slate-900 flex items-center justify-center hover:bg-blue-900 transition-colors text-xl"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="flex flex-col">
+                <h4 class="text-xl font-black mb-8 text-emerald-400 uppercase tracking-widest" data-i18n="footer_contact">Contact Info</h4>
+                <div class="space-y-6">
+                    <a href="tel:7608198216" class="flex items-center gap-4 hover:text-emerald-400 transition group text-xl font-bold justify-center md:justify-start">
+                        <div class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center group-hover:bg-emerald-500 group-hover:text-white transition-all">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        (760) 819-8216
+                    </a>
+                    <a href="mailto:info@jmgtaxservice.com" class="flex items-center gap-4 hover:text-emerald-400 transition group text-lg font-bold justify-center md:justify-start">
+                        <div class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center group-hover:bg-emerald-500 group-hover:text-white transition-all">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        info@jmgtaxservice.com
+                    </a>
+                    <div class="flex items-center gap-4 text-gray-400 text-lg font-bold justify-center md:justify-start">
+                        <div class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <span data-i18n="footer_nationwide">Serving 50 States</span>
+                    </div>
+                </div>
             </div>
             <div>
-                <h4 class="text-lg font-bold mb-4 text-emerald-400 uppercase tracking-widest" data-i18n="footer_contact">Contact Info</h4>
-                <p class="text-gray-300 mb-2">
-                    <a href="tel:7608198216" class="hover:text-emerald-400 transition">
-                        <i class="fas fa-phone mr-2 text-emerald-500"></i> (760) 819-8216
-                    </a>
-                </p>
-                <p class="text-gray-300 mb-2">
-                    <a href="mailto:info@jmgtaxservice.com" class="hover:text-emerald-400 transition">
-                        <i class="fas fa-envelope mr-2 text-emerald-500"></i> info@jmgtaxservice.com
-                    </a>
-                </p>
-                <p class="text-gray-300"><i class="fas fa-globe mr-2 text-emerald-500"></i> <span data-i18n="footer_nationwide">Serving 50 States</span></p>
-            </div>
-            <div>
-                <h4 class="text-lg font-bold mb-4 text-emerald-400 uppercase tracking-widest" data-i18n="footer_hours">Office Hours</h4>
-                <p class="text-gray-400" data-i18n="hour_1">Mon - Fri: 9:00 AM - 6:00 PM</p>
-                <p class="text-gray-400" data-i18n="hour_2">Sat: 10:00 AM - 2:00 PM</p>
-                <p class="text-emerald-500 font-bold mt-2 italic" data-i18n="hour_extra">¡Hablamos Español!</p>
+                <h4 class="text-xl font-black mb-8 text-emerald-400 uppercase tracking-widest" data-i18n="footer_hours">Office Hours</h4>
+                <div class="bg-slate-900 p-8 rounded-[2rem] border border-slate-800">
+                    <p class="text-gray-300 mb-3 font-bold flex justify-between">
+                        <span data-i18n="hour_1_label">Mon - Fri:</span>
+                        <span data-i18n="hour_1_val">9:00 AM - 6:00 PM</span>
+                    </p>
+                    <p class="text-gray-300 mb-6 font-bold flex justify-between">
+                        <span data-i18n="hour_2_label">Sat:</span>
+                        <span data-i18n="hour_2_val">10:00 AM - 2:00 PM</span>
+                    </p>
+                    <div class="h-px bg-slate-800 w-full mb-6"></div>
+                    <p class="text-emerald-400 font-black text-2xl italic text-center animate-pulse" data-i18n="hour_extra">¡Hablamos Español!</p>
+                </div>
             </div>
         </div>
-        <div class="text-center text-gray-600 text-sm border-t border-gray-800 pt-8">
+        <div class="text-center text-gray-600 text-sm border-t border-slate-900 pt-12">
             &copy; 2026 JMG Tax Service. <span data-i18n="footer_rights">All Rights Reserved. Precision • Integrity • Results.</span>
         </div>
     </footer>
@@ -273,9 +336,9 @@
                 comunidad_h2: "Professional Care for Hispanic Families",
                 comunidad_p1: "At JMG Tax Service, we specialize in helping our community navigate the complexities of the US tax system. Whether you are filing with a Social Security Number or an ITIN, we are here to ensure you get every dollar you deserve.",
                 comunidad_feat1_t: "Available in 50 States",
-                comunidad_feat1_d: "No matter where you live in the USA, we can help you virtually.",
-                comunidad_feat2_t: "100% Bilingual Service",
-                comunidad_feat2_d: "Explanation of every form in clear Spanish or English.",
+                comunidad_feat1_d: "Virtual help across the USA.",
+                comunidad_feat2_t: "Bilingual Service",
+                comunidad_feat2_d: "Clear Spanish or English.",
                 badge_confianza: "Total Trust",
                 tag_itin: "ITIN Experts",
                 tag_fam: "Child Tax Credits",
@@ -288,9 +351,9 @@
                 promo_feat_1: "100% Virtual & Secure",
                 promo_feat_2: "Hablamos Español",
                 referral_title: "REFERRAL BONUS",
-                referral_desc: 'Refer a friend and get a <span class="text-yellow-400 font-bold">$100 Cash Bonus Credit</span> on your prep fee!',
+                referral_desc: 'Refer a friend and get a <span class="text-yellow-400 font-black underline underline-offset-4">$100 Cash Bonus Credit</span> on your prep fee!',
                 cash_title: "NEED CASH NOW?",
-                cash_amount: 'CASH ADVANCE <br>UP TO <span class="text-emerald-400">$7,000</span>',
+                cash_amount: 'CASH ADVANCE <br>UP TO <span class="text-emerald-500">$7,000</span>',
                 cash_disclaimer: "* For those who qualify. Ask for details.",
                 cta_desc: "Our expert team ensures your taxes are done right the first time, getting you the funds you need when you need them.",
                 btn_consult: 'BOOK YOUR CONSULTATION <i class="fas fa-arrow-right ml-2"></i>',
@@ -300,8 +363,10 @@
                 footer_contact: "Contact Info",
                 footer_nationwide: "Serving 50 States",
                 footer_hours: "Office Hours",
-                hour_1: "Mon - Fri: 9:00 AM - 6:00 PM",
-                hour_2: "Sat: 10:00 AM - 2:00 PM",
+                hour_1_label: "Mon - Fri:",
+                hour_1_val: "9:00 AM - 6:00 PM",
+                hour_2_label: "Sat:",
+                hour_2_val: "10:00 AM - 2:00 PM",
                 hour_extra: "¡Hablamos Español!",
                 footer_rights: "All Rights Reserved. Precision • Integrity • Results."
             },
@@ -315,9 +380,9 @@
                 comunidad_h2: "Atención Profesional para Familias Hispanas",
                 comunidad_p1: "En JMG Tax Service, nos especializamos en ayudar a nuestra comunidad a navegar las complejidades del sistema tributario de EE. UU. Ya sea que declare con un Número de Seguro Social o un ITIN, estamos aquí para asegurar que reciba cada dólar que merece.",
                 comunidad_feat1_t: "Disponible en los 50 Estados",
-                comunidad_feat1_d: "No importa dónde viva en los EE. UU., podemos ayudarle virtualmente.",
-                comunidad_feat2_t: "Servicio 100% Bilingüe",
-                comunidad_feat2_d: "Explicación de cada formulario en español o inglés claro.",
+                comunidad_feat1_d: "Ayuda virtual en todo EE. UU.",
+                comunidad_feat2_t: "Servicio Bilingüe",
+                comunidad_feat2_d: "Español o Inglés claro.",
                 badge_confianza: "Confianza Total",
                 tag_itin: "Expertos en ITIN",
                 tag_fam: "Créditos por Hijos",
@@ -330,9 +395,9 @@
                 promo_feat_1: "100% Virtual y Seguro",
                 promo_feat_2: "Hablamos Español",
                 referral_title: "BONO POR RECOMENDACIÓN",
-                referral_desc: '¡Recomiende a un amigo y obtenga un <span class="text-yellow-400 font-bold">Crédito de Bono de $100</span> en su tarifa de preparación!',
+                referral_desc: '¡Recomiende a un amigo y obtenga un <span class="text-yellow-400 font-black underline underline-offset-4">Crédito de Bono de $100</span> en su tarifa de preparación!',
                 cash_title: "¿NECESITA EFECTIVO YA?",
-                cash_amount: 'ADELANTO DE EFECTIVO <br>HASTA <span class="text-emerald-400">$7,000</span>',
+                cash_amount: 'ADELANTO DE EFECTIVO <br>HASTA <span class="text-emerald-500">$7,000</span>',
                 cash_disclaimer: "* Para aquellos que califiquen. Pida detalles.",
                 cta_desc: "Nuestro equipo de expertos garantiza que sus impuestos se hagan bien a la primera, obteniendo los fondos que necesita cuando los necesita.",
                 btn_consult: 'RESERVE SU CONSULTA <i class="fas fa-arrow-right ml-2"></i>',
@@ -342,8 +407,10 @@
                 footer_contact: "Contacto",
                 footer_nationwide: "Sirviendo a 50 Estados",
                 footer_hours: "Horario",
-                hour_1: "Lun - Vie: 9:00 AM - 6:00 PM",
-                hour_2: "Sáb: 10:00 AM - 2:00 PM",
+                hour_1_label: "Lun - Vie:",
+                hour_1_val: "9:00 AM - 6:00 PM",
+                hour_2_label: "Sáb:",
+                hour_2_val: "10:00 AM - 2:00 PM",
                 hour_extra: "¡Hablamos Español!",
                 footer_rights: "Todos los derechos reservados. Precisión • Integridad • Resultados."
             }
