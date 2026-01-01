@@ -29,7 +29,6 @@
             margin: 1rem auto;
             border-radius: 2px;
         }
-        /* Canva-style text punch */
         .text-punch {
             text-shadow: 2px 2px 0px rgba(0,0,0,0.1);
         }
@@ -53,8 +52,7 @@
                     </a>
                 </div>
                 <div class="flex items-center space-x-2 sm:space-x-4">
-                    <a href="#promotions" class="hidden lg:block text-gray-600 hover:text-blue-900 font-semibold">Special Offers</a>
-                    <a href="#tips" class="hidden lg:block text-gray-600 hover:text-blue-900 font-semibold">Tax Tips</a>
+                    <a href="#promotions" class="hidden lg:block text-gray-600 hover:text-blue-900 font-semibold" data-i18n="nav_offers">Special Offers</a>
                     <a href="https://form.jotform.com/253015681932860" target="_blank" class="bg-emerald-500 text-white px-3 py-2 sm:px-4 rounded-lg text-sm font-bold hover:bg-emerald-600 transition flex items-center gap-2">
                         <i class="fas fa-calendar-alt"></i> <span data-i18n="nav_book">Book Now</span>
                     </a>
@@ -89,58 +87,58 @@
         </div>
     </header>
 
-    <!-- PROMOTIONAL SECTION (Integrated Canva Style) -->
+    <!-- PROMOTIONAL SECTION -->
     <section id="promotions" class="py-20 bg-white overflow-hidden">
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-black text-blue-900 uppercase tracking-tighter">Bigger Refunds. <span class="text-emerald-500">Better Service.</span></h2>
+                <h2 class="text-3xl md:text-5xl font-black text-blue-900 uppercase tracking-tighter" data-i18n="promo_main_title">Bigger Refunds. <span class="text-emerald-500">Better Service.</span></h2>
                 <div class="gradient-border"></div>
-                <p class="text-gray-600 font-semibold">Specializing in Personal & Small Business Tax Solutions</p>
+                <p class="text-gray-600 font-semibold" data-i18n="promo_subtitle">Specializing in Personal & Small Business Tax Solutions</p>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
                 <!-- Promo Graphic Card -->
                 <div class="bg-blue-900 rounded-3xl p-8 text-white relative flex flex-col justify-between shadow-2xl border-b-8 border-emerald-500">
-                    <div class="absolute top-4 right-4 bg-yellow-400 text-blue-900 font-black px-4 py-1 rounded-full text-xs animate-pulse">
-                        2025 FILING OPEN
+                    <div class="absolute top-4 right-4 bg-yellow-400 text-blue-900 font-black px-4 py-1 rounded-full text-xs animate-pulse" data-i18n="promo_tag">
+                        2026 FILING OPEN
                     </div>
                     <div>
-                        <h3 class="text-4xl font-extrabold mb-4 italic leading-none text-punch">MAXIMIZE YOUR <br><span class="text-emerald-400">REFUND</span></h3>
-                        <p class="text-blue-100 mb-8 max-w-sm">We find the deductions and credits others miss. Licensed in all 50 states, serving you virtually.</p>
+                        <h3 class="text-4xl font-extrabold mb-4 italic leading-none text-punch" data-i18n="promo_maximize">MAXIMIZE YOUR <br><span class="text-emerald-400">REFUND</span></h3>
+                        <p class="text-blue-100 mb-8 max-w-sm" data-i18n="promo_desc">We find the deductions and credits others miss. Licensed in all 50 states, serving you virtually.</p>
                         
                         <div class="space-y-4 mb-8">
                             <div class="flex items-center gap-3">
                                 <div class="w-8 h-8 rounded-full bg-emerald-500 flex items-center justify-center text-xs">
                                     <i class="fas fa-check"></i>
                                 </div>
-                                <span class="font-bold">100% Virtual & Secure</span>
+                                <span class="font-bold" data-i18n="promo_feat_1">100% Virtual & Secure</span>
                             </div>
                             <div class="flex items-center gap-3">
                                 <div class="w-8 h-8 rounded-full bg-emerald-500 flex items-center justify-center text-xs">
                                     <i class="fas fa-check"></i>
                                 </div>
-                                <span class="font-bold">Hablamos Español</span>
+                                <span class="font-bold" data-i18n="promo_feat_2">Hablamos Español</span>
                             </div>
                         </div>
                     </div>
                     
                     <div class="bg-white/10 p-4 rounded-2xl backdrop-blur-sm border border-white/20">
-                        <p class="text-sm font-bold text-emerald-400 uppercase tracking-widest mb-1">REFERRAL BONUS</p>
-                        <p class="text-xs">Refer a friend and get a <span class="text-yellow-400 font-bold">$75 Cash Bonus</span> or discount on your prep fee!</p>
+                        <p class="text-sm font-bold text-emerald-400 uppercase tracking-widest mb-1" data-i18n="referral_title">REFERRAL BONUS</p>
+                        <p class="text-xs" data-i18n="referral_desc">Refer a friend and get a <span class="text-yellow-400 font-bold">$100 Cash Bonus Credit</span> on your prep fee!</p>
                     </div>
                 </div>
 
                 <!-- Call to Action Card -->
                 <div class="bg-gray-50 rounded-3xl p-8 border-2 border-gray-100 flex flex-col justify-center text-center lg:text-left">
                     <div class="mb-6 p-6 bg-blue-900 rounded-2xl border-l-4 border-yellow-400 shadow-lg">
-                        <h4 class="text-2xl font-black text-yellow-400 italic mb-2">NEED CASH NOW?</h4>
-                        <p class="text-white text-3xl font-bold">CASH ADVANCE <br>UP TO <span class="text-emerald-400">$7,000</span></p>
-                        <p class="text-blue-200 text-xs mt-2 uppercase tracking-widest font-bold">* For those who qualify. Ask for details.</p>
+                        <h4 class="text-2xl font-black text-yellow-400 italic mb-2" data-i18n="cash_title">NEED CASH NOW?</h4>
+                        <p class="text-white text-3xl font-bold" data-i18n="cash_amount">CASH ADVANCE <br>UP TO <span class="text-emerald-400">$7,000</span></p>
+                        <p class="text-blue-200 text-xs mt-2 uppercase tracking-widest font-bold" data-i18n="cash_disclaimer">* For those who qualify. Ask for details.</p>
                     </div>
                     
-                    <p class="text-gray-600 mb-8 text-lg">Our expert team ensures your taxes are done right the first time, getting you the funds you need when you need them.</p>
+                    <p class="text-gray-600 mb-8 text-lg" data-i18n="cta_desc">Our expert team ensures your taxes are done right the first time, getting you the funds you need when you need them.</p>
 
-                    <a href="https://form.jotform.com/253015681932860" target="_blank" class="bg-emerald-500 hover:bg-emerald-600 text-white font-black py-5 rounded-2xl text-xl shadow-xl transition-all transform hover:-translate-y-1 block text-center">
+                    <a href="https://form.jotform.com/253015681932860" target="_blank" class="bg-emerald-500 hover:bg-emerald-600 text-white font-black py-5 rounded-2xl text-xl shadow-xl transition-all transform hover:-translate-y-1 block text-center" data-i18n="btn_consult">
                         BOOK YOUR CONSULTATION <i class="fas fa-arrow-right ml-2"></i>
                     </a>
                 </div>
@@ -148,68 +146,60 @@
         </div>
     </section>
 
-    <!-- Marketing: The JMG Advantage -->
+    <!-- The JMG Advantage -->
     <section id="why-jmg" class="py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold text-blue-900 mb-4" data-i18n="why_title">The JMG Advantage</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Why settle for retail tax chains when you can have personalized, expert service?</p>
+                <p class="text-gray-600 max-w-2xl mx-auto" data-i18n="why_subtitle">Why settle for retail tax chains when you can have personalized, expert service?</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Feature 1 -->
                 <div class="bg-white rounded-2xl feature-card border border-gray-100 shadow-sm flex flex-col">
                     <div class="h-48 w-full relative overflow-hidden">
                         <img src="https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&w=600&q=80" alt="Fast Refund" class="w-full h-full object-cover img-overlay">
-                        <div class="absolute inset-0 bg-blue-900/20"></div>
                     </div>
                     <div class="p-6">
                         <div class="flex items-center gap-3 mb-4">
                             <i class="fas fa-rocket text-blue-900 text-xl"></i>
-                            <h3 class="text-xl font-bold text-blue-900">Faster Refunds</h3>
+                            <h3 class="text-xl font-bold text-blue-900" data-i18n="adv_1_title">Faster Refunds</h3>
                         </div>
-                        <p class="text-gray-600 text-sm leading-relaxed">Advanced e-filing systems ensuring your return is processed by the IRS with lightning speed.</p>
+                        <p class="text-gray-600 text-sm leading-relaxed" data-i18n="adv_1_desc">Advanced e-filing systems ensuring your return is processed by the IRS with lightning speed.</p>
                     </div>
                 </div>
-                <!-- Feature 2: Hidden Credits -->
                 <div class="bg-white rounded-2xl feature-card border border-gray-100 shadow-sm flex flex-col">
                     <div class="h-48 w-full relative overflow-hidden">
                         <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=600&q=80" alt="Hidden Tax Credits" class="w-full h-full object-cover img-overlay">
-                        <div class="absolute inset-0 bg-emerald-900/20"></div>
                     </div>
                     <div class="p-6">
                         <div class="flex items-center gap-3 mb-4">
                             <i class="fas fa-search-dollar text-emerald-600 text-xl"></i>
-                            <h3 class="text-xl font-bold text-blue-900">Hidden Credits</h3>
+                            <h3 class="text-xl font-bold text-blue-900" data-i18n="adv_2_title">Hidden Credits</h3>
                         </div>
-                        <p class="text-gray-600 text-sm leading-relaxed">Our experts dig deeper than any software to find credits most people miss.</p>
+                        <p class="text-gray-600 text-sm leading-relaxed" data-i18n="adv_2_desc">Our experts dig deeper than any software to find credits most people miss.</p>
                     </div>
                 </div>
-                <!-- Feature 3 -->
                 <div class="bg-white rounded-2xl feature-card border border-gray-100 shadow-sm flex flex-col">
                     <div class="h-48 w-full relative overflow-hidden">
                         <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80" alt="Secure Portal" class="w-full h-full object-cover img-overlay">
-                        <div class="absolute inset-0 bg-yellow-900/20"></div>
                     </div>
                     <div class="p-6">
                         <div class="flex items-center gap-3 mb-4">
                             <i class="fas fa-lock text-yellow-600 text-xl"></i>
-                            <h3 class="text-xl font-bold text-blue-900">Secure & Private</h3>
+                            <h3 class="text-xl font-bold text-blue-900" data-i18n="adv_3_title">Secure & Private</h3>
                         </div>
-                        <p class="text-gray-600 text-sm leading-relaxed">Bank-level encryption protects your most sensitive data. Your privacy is our priority.</p>
+                        <p class="text-gray-600 text-sm leading-relaxed" data-i18n="adv_3_desc">Bank-level encryption protects your most sensitive data. Your privacy is our priority.</p>
                     </div>
                 </div>
-                <!-- Feature 4 -->
                 <div class="bg-white rounded-2xl feature-card border border-gray-100 shadow-sm flex flex-col">
                     <div class="h-48 w-full relative overflow-hidden">
                         <img src="https://images.unsplash.com/photo-1556742044-3c52d6e88c62?auto=format&fit=crop&w=600&q=80" alt="Cash Advance" class="w-full h-full object-cover img-overlay">
-                        <div class="absolute inset-0 bg-emerald-900/20"></div>
                     </div>
                     <div class="p-6">
                         <div class="flex items-center gap-3 mb-4">
                             <i class="fas fa-hand-holding-usd text-emerald-600 text-xl"></i>
-                            <h3 class="text-xl font-bold text-blue-900">Cash Advance</h3>
+                            <h3 class="text-xl font-bold text-blue-900" data-i18n="adv_4_title">Cash Advance</h3>
                         </div>
-                        <p class="text-gray-600 text-sm leading-relaxed">Access a portion of your refund early with our secure cash advance options up to $7,000.</p>
+                        <p class="text-gray-600 text-sm leading-relaxed" data-i18n="adv_4_desc">Access a portion of your refund early with our secure cash advance options up to $7,000.</p>
                     </div>
                 </div>
             </div>
@@ -220,11 +210,11 @@
     <footer class="bg-gray-900 text-white pt-16 pb-8 mt-auto">
         <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-12 mb-12 text-center md:text-left">
             <div>
-                <h4 class="text-lg font-bold mb-4 text-emerald-400 uppercase tracking-widest">JMG Tax Service</h4>
-                <p class="text-gray-400 leading-relaxed">Professional tax preparation and consulting. Serving all 50 states virtually with bank-level security.</p>
+                <h4 class="text-lg font-bold mb-4 text-emerald-400 uppercase tracking-widest" data-i18n="footer_brand">JMG Tax Service</h4>
+                <p class="text-gray-400 leading-relaxed" data-i18n="footer_desc">Professional tax preparation and consulting. Serving all 50 states virtually with bank-level security.</p>
             </div>
             <div>
-                <h4 class="text-lg font-bold mb-4 text-emerald-400 uppercase tracking-widest">Contact Info</h4>
+                <h4 class="text-lg font-bold mb-4 text-emerald-400 uppercase tracking-widest" data-i18n="footer_contact">Contact Info</h4>
                 <p class="text-gray-300 mb-2">
                     <a href="tel:7608198216" class="hover:text-emerald-400 transition">
                         <i class="fas fa-phone mr-2 text-emerald-500"></i> (760) 819-8216
@@ -235,37 +225,103 @@
                         <i class="fas fa-envelope mr-2 text-emerald-500"></i> info@jmgtaxservice.com
                     </a>
                 </p>
-                <p class="text-gray-300"><i class="fas fa-globe mr-2 text-emerald-500"></i> Nationwide Service</p>
+                <p class="text-gray-300"><i class="fas fa-globe mr-2 text-emerald-500"></i> <span data-i18n="footer_nationwide">Nationwide Service</span></p>
             </div>
             <div>
-                <h4 class="text-lg font-bold mb-4 text-emerald-400 uppercase tracking-widest">Office Hours</h4>
-                <p class="text-gray-400">Mon - Fri: 9:00 AM - 6:00 PM</p>
-                <p class="text-gray-400">Sat: 10:00 AM - 2:00 PM</p>
-                <p class="text-emerald-500 font-bold mt-2 italic">Extended hours during tax season!</p>
+                <h4 class="text-lg font-bold mb-4 text-emerald-400 uppercase tracking-widest" data-i18n="footer_hours">Office Hours</h4>
+                <p class="text-gray-400" data-i18n="hour_1">Mon - Fri: 9:00 AM - 6:00 PM</p>
+                <p class="text-gray-400" data-i18n="hour_2">Sat: 10:00 AM - 2:00 PM</p>
+                <p class="text-emerald-500 font-bold mt-2 italic" data-i18n="hour_extra">Extended hours during tax season!</p>
             </div>
         </div>
         <div class="text-center text-gray-600 text-sm border-t border-gray-800 pt-8">
-            &copy; 2025 JMG Tax Service. All Rights Reserved. Precision • Integrity • Results.
+            &copy; 2026 JMG Tax Service. <span data-i18n="footer_rights">All Rights Reserved. Precision • Integrity • Results.</span>
         </div>
     </footer>
 
     <script>
         const translations = {
             en: {
+                nav_offers: "Special Offers",
+                nav_book: "Book Now",
                 hero_badge: "Licensed in All 50 States",
                 hero_title: "Get Your Maximum Refund.<br>Guaranteed Accuracy.",
                 hero_subtitle: "Don't leave money on the table. Join thousands of satisfied clients who trust JMG Tax Service for professional, virtual tax preparation.",
                 btn_book: "Start Your Filing Now",
+                promo_main_title: 'Bigger Refunds. <span class="text-emerald-500">Better Service.</span>',
+                promo_subtitle: "Specializing in Personal & Small Business Tax Solutions",
+                promo_tag: "2026 FILING OPEN",
+                promo_maximize: 'MAXIMIZE YOUR <br><span class="text-emerald-400">REFUND</span>',
+                promo_desc: "We find the deductions and credits others miss. Licensed in all 50 states, serving you virtually.",
+                promo_feat_1: "100% Virtual & Secure",
+                promo_feat_2: "Hablamos Español",
+                referral_title: "REFERRAL BONUS",
+                referral_desc: 'Refer a friend and get a <span class="text-yellow-400 font-bold">$100 Cash Bonus Credit</span> on your prep fee!',
+                cash_title: "NEED CASH NOW?",
+                cash_amount: 'CASH ADVANCE <br>UP TO <span class="text-emerald-400">$7,000</span>',
+                cash_disclaimer: "* For those who qualify. Ask for details.",
+                cta_desc: "Our expert team ensures your taxes are done right the first time, getting you the funds you need when you need them.",
+                btn_consult: 'BOOK YOUR CONSULTATION <i class="fas fa-arrow-right ml-2"></i>',
                 why_title: "The JMG Advantage",
-                nav_book: "Book Now"
+                why_subtitle: "Why settle for retail tax chains when you can have personalized, expert service?",
+                adv_1_title: "Faster Refunds",
+                adv_1_desc: "Advanced e-filing systems ensuring your return is processed by the IRS with lightning speed.",
+                adv_2_title: "Hidden Credits",
+                adv_2_desc: "Our experts dig deeper than any software to find credits most people miss.",
+                adv_3_title: "Secure & Private",
+                adv_3_desc: "Bank-level encryption protects your most sensitive data. Your privacy is our priority.",
+                adv_4_title: "Cash Advance",
+                adv_4_desc: "Access a portion of your refund early with our secure cash advance options up to $7,000.",
+                footer_brand: "JMG Tax Service",
+                footer_desc: "Professional tax preparation and consulting. Serving all 50 states virtually with bank-level security.",
+                footer_contact: "Contact Info",
+                footer_nationwide: "Nationwide Service",
+                footer_hours: "Office Hours",
+                hour_1: "Mon - Fri: 9:00 AM - 6:00 PM",
+                hour_2: "Sat: 10:00 AM - 2:00 PM",
+                hour_extra: "Extended hours during tax season!",
+                footer_rights: "All Rights Reserved. Precision • Integrity • Results."
             },
             es: {
+                nav_offers: "Ofertas Especiales",
+                nav_book: "Reservar",
                 hero_badge: "Licenciado en los 50 Estados",
                 hero_title: "Obtenga su Reembolso Máximo.<br>Exactitud Garantizada.",
                 hero_subtitle: "No deje dinero sobre la mesa. Únase a miles de clientes satisfechos que confían en JMG Tax Service para una preparación de impuestos profesional y virtual.",
                 btn_book: "Comience su Declaración Ahora",
+                promo_main_title: 'Mayores Reembolsos. <span class="text-emerald-500">Mejor Servicio.</span>',
+                promo_subtitle: "Especializados en Soluciones Fiscales Personales y para Pequeñas Empresas",
+                promo_tag: "PRESENTACIÓN 2026 ABIERTA",
+                promo_maximize: 'MAXIMICE SU <br><span class="text-emerald-400">REEMBOLSO</span>',
+                promo_desc: "Encontramos las deducciones y créditos que otros pasan por alto. Licenciados en los 50 estados, sirviéndole virtualmente.",
+                promo_feat_1: "100% Virtual y Seguro",
+                promo_feat_2: "Hablamos Español",
+                referral_title: "BONO POR RECOMENDACIÓN",
+                referral_desc: '¡Recomiende a un amigo y obtenga un <span class="text-yellow-400 font-bold">Crédito de Bono de $100</span> en su tarifa de preparación!',
+                cash_title: "¿NECESITA EFECTIVO YA?",
+                cash_amount: 'ADELANTO DE EFECTIVO <br>HASTA <span class="text-emerald-400">$7,000</span>',
+                cash_disclaimer: "* Para aquellos que califiquen. Pida detalles.",
+                cta_desc: "Nuestro equipo de expertos garantiza que sus impuestos se hagan bien a la primera, obteniendo los fondos que necesita cuando los necesita.",
+                btn_consult: 'RESERVE SU CONSULTA <i class="fas fa-arrow-right ml-2"></i>',
                 why_title: "La Ventaja de JMG",
-                nav_book: "Reservar"
+                why_subtitle: "¿Por qué conformarse con cadenas de impuestos minoristas cuando puede tener un servicio experto y personalizado?",
+                adv_1_title: "Reembolsos Rápidos",
+                adv_1_desc: "Sistemas avanzados de presentación electrónica que garantizan que el IRS procese su declaración a la velocidad de la luz.",
+                adv_2_title: "Créditos Ocultos",
+                adv_2_desc: "Nuestros expertos profundizan más que cualquier software para encontrar créditos que la mayoría de la gente pierde.",
+                adv_3_title: "Seguro y Privado",
+                adv_3_desc: "La encriptación de nivel bancario protege sus datos más sensibles. Su privacidad es nuestra prioridad.",
+                adv_4_title: "Adelanto de Efectivo",
+                adv_4_desc: "Acceda a una parte de su reembolso anticipadamente con nuestras opciones seguras de adelanto de efectivo de hasta $7,000.",
+                footer_brand: "JMG Tax Service",
+                footer_desc: "Preparación y consultoría de impuestos profesional. Sirviendo a los 50 estados virtualmente con seguridad de nivel bancario.",
+                footer_contact: "Información de Contacto",
+                footer_nationwide: "Servicio Nacional",
+                footer_hours: "Horas de Oficina",
+                hour_1: "Lun - Vie: 9:00 AM - 6:00 PM",
+                hour_2: "Sáb: 10:00 AM - 2:00 PM",
+                hour_extra: "¡Horario extendido durante la temporada de impuestos!",
+                footer_rights: "Todos los derechos reservados. Precisión • Integridad • Resultados."
             }
         };
 
