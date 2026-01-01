@@ -100,14 +100,18 @@
                     <h3 class="text-xl font-bold text-blue-900 mb-2" data-i18n="ai_tool1_name">Smart Tax Assistant</h3>
                     <p class="text-gray-600 mb-4">Quick answers about deductions, credits, and documents.</p>
                     <textarea id="aiInput" rows="3" class="w-full p-4 bg-gray-50 border rounded-xl mb-4 focus:ring-2 focus:ring-blue-500 outline-none transition" placeholder="Ask a tax question..."></textarea>
-                    <button onclick="handleAI('assistant')" class="w-full bg-blue-600 text-white py-3 rounded-xl font-bold hover:bg-blue-700 transition">Get Answers</button>
+                    <button id="btnAssistant" onclick="handleAI('assistant')" class="w-full bg-blue-600 text-white py-3 rounded-xl font-bold hover:bg-blue-700 transition flex items-center justify-center gap-2">
+                        <span>Get Answers</span>
+                    </button>
                 </div>
                 <!-- Tool 2 -->
                 <div class="ai-card bg-white rounded-2xl p-6">
                     <h3 class="text-xl font-bold text-blue-900 mb-2" data-i18n="ai_tool2_name">Refund Strategy Planner</h3>
                     <p class="text-gray-600 mb-4">Personalized strategy based on your life changes.</p>
                     <textarea id="strategyInput" rows="3" class="w-full p-4 bg-gray-50 border rounded-xl mb-4 focus:ring-2 focus:ring-emerald-500 outline-none transition" placeholder="e.g., I bought a house and had a baby..."></textarea>
-                    <button onclick="handleAI('strategy')" class="w-full bg-emerald-500 text-white py-3 rounded-xl font-bold hover:bg-emerald-600 transition">Plan Strategy</button>
+                    <button id="btnStrategy" onclick="handleAI('strategy')" class="w-full bg-emerald-500 text-white py-3 rounded-xl font-bold hover:bg-emerald-600 transition flex items-center justify-center gap-2">
+                        <span>Plan Strategy</span>
+                    </button>
                 </div>
             </div>
             
@@ -116,12 +120,12 @@
                 <div id="aiLoading" class="hidden absolute inset-0 bg-white/95 flex items-center justify-center z-10 rounded-2xl">
                     <div class="flex flex-col items-center">
                         <div class="spinner border-blue-600 border-t-transparent w-10 h-10 mb-4"></div>
-                        <p class="text-blue-900 font-bold animate-pulse">Consulting JMG Knowledge Base...</p>
+                        <p class="text-blue-900 font-bold animate-pulse">Consulting JMG Intelligence...</p>
                     </div>
                 </div>
                 <div id="aiContent" class="prose prose-blue max-w-none"></div>
                 <div class="mt-6 pt-6 border-t border-gray-100 flex flex-col sm:flex-row justify-between items-center gap-4">
-                    <p class="text-xs text-gray-500 italic">* AI insights are for informational purposes. Verify with our pros.</p>
+                    <p class="text-xs text-gray-500 italic">* AI insights are for informational purposes. Always verify with our licensed pros.</p>
                     <div class="flex gap-2">
                         <a href="mailto:info@jmgtaxservice.com" class="text-blue-600 font-bold text-sm hover:underline">Contact Expert</a>
                         <button onclick="document.getElementById('aiResult').classList.add('hidden')" class="text-red-500 font-bold text-sm ml-4">Clear Result</button>
@@ -187,15 +191,19 @@
     </footer>
 
     <script>
-        const apiKey = ""; // Handled by environment at runtime
+        // API Key is injected by the environment.
+        const apiKey = ""; 
 
         async function callGemini(query, sys) {
+            // Updated to the correct endpoint for the preview environment
             const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
             const payload = {
                 contents: [{ parts: [{ text: query }] }],
                 systemInstruction: { parts: [{ text: sys }] }
             };
 
+            // Exponential backoff implementation (1s, 2s, 4s, 8s, 16s)
+            let delays = [1000, 2000, 4000, 8000, 16000];
             for (let i = 0; i < 5; i++) {
                 try {
                     const response = await fetch(url, {
@@ -203,13 +211,17 @@
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(payload)
                     });
-                    if (!response.ok) throw new Error('API Fail');
+                    
+                    if (!response.ok) {
+                        const errorData = await response.json();
+                        throw new Error(errorData.error?.message || 'API Error');
+                    }
+                    
                     const data = await response.json();
                     return data.candidates[0].content.parts[0].text;
                 } catch (e) {
                     if (i === 4) throw e;
-                    // Exponential backoff
-                    await new Promise(r => setTimeout(r, Math.pow(2, i) * 1000));
+                    await new Promise(resolve => setTimeout(resolve, delays[i]));
                 }
             }
         }
@@ -219,10 +231,11 @@
             const content = document.getElementById('aiContent');
             const loader = document.getElementById('aiLoading');
             const inputField = type === 'assistant' ? document.getElementById('aiInput') : document.getElementById('strategyInput');
-            let input = inputField.value;
+            const input = inputField.value.trim();
             
-            if (!input.trim()) return;
+            if (!input) return;
 
+            // Show UI states
             resultArea.classList.remove('hidden');
             loader.classList.remove('hidden');
             content.innerHTML = "";
@@ -230,29 +243,27 @@
             const systemPrompt = `You are the JMG Tax AI Assistant. You are professional, expert, and encouraging. 
             Company Identity: JMG Tax Service.
             Contact: info@jmgtaxservice.com | (760) 819-8216.
-            Scope: We serve all 50 U.S. states.
-            Goal: Provide helpful initial tax guidance and explain how our professional service can maximize their specific situation.
+            Tone: Helpful, trustworthy, and clear.
+            Scope: We serve all 50 U.S. states and specialize in individual and business tax prep.
             
             Instructions:
             1. Use professional but accessible language.
             2. Format responses with clear Markdown (headers, bold text, bullet points).
             3. Always mention that tax laws change and a professional review is best.
-            4. End with a specific call to action: "Ready to maximize your refund? Email us at info@jmgtaxservice.com or call (760) 819-8216 today!"`;
+            4. If the user mentions life changes (moving, baby, home), explain the potential tax impact.
+            5. End with a specific call to action: "Ready to maximize your refund? Email us at info@jmgtaxservice.com or call (760) 819-8216 today!"`;
 
             try {
-                const response = await callGemini(input, systemPrompt);
-                content.innerHTML = marked.parse(response);
+                const responseText = await callGemini(input, systemPrompt);
+                content.innerHTML = marked.parse(responseText);
                 resultArea.scrollIntoView({ behavior: 'smooth' });
-                inputField.value = ""; // Clear input on success
+                inputField.value = ""; 
             } catch (e) {
+                console.error('AI Error:', e);
                 content.innerHTML = `
                 <div class="p-6 bg-red-50 border border-red-200 rounded-xl text-red-800">
-                    <p class="font-bold mb-2"><i class="fas fa-exclamation-triangle mr-2"></i> Service Temporarily Unavailable</p>
-                    <p>We're experiencing heavy traffic or a connection issue. Please don't wait for the AI—our human experts are ready to help!</p>
-                    <div class="mt-4 flex gap-4">
-                        <a href="tel:7608198216" class="font-bold underline">Call (760) 819-8216</a>
-                        <a href="mailto:info@jmgtaxservice.com" class="font-bold underline">Email info@jmgtaxservice.com</a>
-                    </div>
+                    <p class="font-bold mb-2"><i class="fas fa-exclamation-triangle mr-2"></i> Connection Interrupted</p>
+                    <p>Please email us directly at <strong>info@jmgtaxservice.com</strong> or call <strong>(760) 819-8216</strong> for your tax questions.</p>
                 </div>`;
             } finally {
                 loader.classList.add('hidden');
