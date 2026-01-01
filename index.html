@@ -5,33 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JMG Tax Service - Professional Tax Preparation</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Open Sans', sans-serif; scroll-behavior: smooth; }
         h1, h2, h3, h4, .brand-font { font-family: 'Montserrat', sans-serif; }
         .hero-bg {
-            background: linear-gradient(rgba(30, 58, 138, 0.9), rgba(30, 58, 138, 0.8)), url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background: linear-gradient(rgba(30, 58, 138, 0.95), rgba(30, 58, 138, 0.85)), url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
             background-size: cover;
             background-position: center;
         }
-        .spinner {
-            border: 3px solid rgba(30, 58, 138, 0.3);
-            border-radius: 50%;
-            border-top: 3px solid #1e3a8a;
-            width: 30px;
-            height: 30px;
-            animation: spin 1s linear infinite;
-        }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
         .logo-svg { height: 40px; width: auto; }
-        .ai-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid #e5e7eb; }
-        .ai-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); border-color: #3b82f6; }
-        .prose { color: #374151; max-width: none; }
-        .prose strong { color: #1e3a8a; }
-        .prose h1, .prose h2, .prose h3 { color: #1e3a8a; margin-top: 1.5rem; margin-bottom: 0.5rem; font-weight: 700; }
-        .prose ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1rem; }
+        .feature-card { transition: all 0.3s ease; overflow: hidden; }
+        .feature-card:hover { transform: translateY(-8px); }
+        .tip-card { border-left: 4px solid #10b981; }
+        .img-overlay { transition: transform 0.5s ease; }
+        .feature-card:hover .img-overlay { transform: scale(1.1); }
+        .ad-glow { box-shadow: 0 0 25px rgba(16, 185, 129, 0.3); }
+        .gradient-border {
+            background: linear-gradient(to right, #1e3a8a, #10b981);
+            height: 4px;
+            width: 100px;
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+        /* Canva-style text punch */
+        .text-punch {
+            text-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen">
@@ -51,12 +52,13 @@
                         </svg>
                     </a>
                 </div>
-                <div class="flex items-center space-x-4">
-                    <a href="#ai-tools" class="hidden md:block text-gray-600 hover:text-blue-900 font-semibold">✨ AI Assistant</a>
-                    <a href="mailto:info@jmgtaxservice.com" class="bg-blue-900 text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-blue-800 transition">
-                        <i class="fas fa-envelope mr-1"></i> Email Us
+                <div class="flex items-center space-x-2 sm:space-x-4">
+                    <a href="#promotions" class="hidden lg:block text-gray-600 hover:text-blue-900 font-semibold">Special Offers</a>
+                    <a href="#tips" class="hidden lg:block text-gray-600 hover:text-blue-900 font-semibold">Tax Tips</a>
+                    <a href="https://form.jotform.com/253015681932860" target="_blank" class="bg-emerald-500 text-white px-3 py-2 sm:px-4 rounded-lg text-sm font-bold hover:bg-emerald-600 transition flex items-center gap-2">
+                        <i class="fas fa-calendar-alt"></i> <span data-i18n="nav_book">Book Now</span>
                     </a>
-                    <button id="langToggle" class="bg-gray-100 hover:bg-gray-200 px-3 py-1 rounded-full text-sm font-bold text-blue-900 border border-gray-300">
+                    <button id="langToggle" class="bg-gray-100 hover:bg-gray-200 px-2 py-1 sm:px-3 rounded-full text-xs sm:text-sm font-bold text-blue-900 border border-gray-300">
                         <span id="langLabel">ESPAÑOL</span>
                     </button>
                 </div>
@@ -71,221 +73,199 @@
                 <i class="fas fa-check-circle"></i> <span data-i18n="hero_badge">Licensed in All 50 States</span>
             </div>
             <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight" data-i18n="hero_title">
-                Maximize Your Refund.<br>Minimize The Stress.
+                Get Your Maximum Refund.<br>Guaranteed Accuracy.
             </h1>
-            <p class="text-xl md:text-2xl text-blue-100 max-w-2xl mx-auto mb-10" data-i18n="hero_subtitle">
-                Expert tax preparation for individuals and businesses. Fast, secure, and fully remote.
+            <p class="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto mb-10" data-i18n="hero_subtitle">
+                Don't leave money on the table. Join thousands of satisfied clients who trust JMG Tax Service for professional, virtual tax preparation.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="https://form.jotform.com/253015681932860" target="_blank" class="bg-yellow-400 text-blue-900 px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-300 transition shadow-lg transform hover:-translate-y-1">
-                    <i class="fas fa-calendar-check mr-2"></i> <span data-i18n="btn_book">Book Appointment</span>
+                <a href="https://form.jotform.com/253015681932860" target="_blank" class="bg-yellow-400 text-blue-900 px-10 py-5 rounded-lg font-bold text-xl hover:bg-yellow-300 transition shadow-xl transform hover:-translate-y-1">
+                    <i class="fas fa-file-invoice-dollar mr-2"></i> <span data-i18n="btn_book">Start Your Filing Now</span>
                 </a>
-                <a href="tel:7608198216" class="bg-white text-blue-900 px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition shadow-lg">
+                <a href="tel:7608198216" class="bg-white text-blue-900 px-10 py-5 rounded-lg font-bold text-xl hover:bg-blue-50 transition shadow-xl">
                     <i class="fas fa-phone mr-2"></i> Call (760) 819-8216
                 </a>
             </div>
         </div>
     </header>
 
-    <!-- AI Hub Section -->
-    <section id="ai-tools" class="py-16 bg-blue-900">
+    <!-- PROMOTIONAL SECTION (Integrated Canva Style) -->
+    <section id="promotions" class="py-20 bg-white overflow-hidden">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-12 text-white">
-                <h2 class="text-4xl font-bold" data-i18n="ai_hub_title">✨ JMG Intelligence Center</h2>
-                <p class="text-blue-200 mt-4" data-i18n="ai_hub_subtitle">Get instant answers powered by Google Gemini</p>
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-black text-blue-900 uppercase tracking-tighter">Bigger Refunds. <span class="text-emerald-500">Better Service.</span></h2>
+                <div class="gradient-border"></div>
+                <p class="text-gray-600 font-semibold">Specializing in Personal & Small Business Tax Solutions</p>
             </div>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <!-- Tool 1 -->
-                <div class="ai-card bg-white rounded-2xl p-6">
-                    <h3 class="text-xl font-bold text-blue-900 mb-2" data-i18n="ai_tool1_name">Smart Tax Assistant</h3>
-                    <p class="text-gray-600 mb-4">Quick answers about deductions, credits, and documents.</p>
-                    <textarea id="aiInput" rows="3" class="w-full p-4 bg-gray-50 border rounded-xl mb-4 focus:ring-2 focus:ring-blue-500 outline-none transition" placeholder="Ask a tax question..."></textarea>
-                    <button id="btnAssistant" onclick="handleAI('assistant')" class="w-full bg-blue-600 text-white py-3 rounded-xl font-bold hover:bg-blue-700 transition flex items-center justify-center gap-2">
-                        <span>Get Answers</span>
-                    </button>
-                </div>
-                <!-- Tool 2 -->
-                <div class="ai-card bg-white rounded-2xl p-6">
-                    <h3 class="text-xl font-bold text-blue-900 mb-2" data-i18n="ai_tool2_name">Refund Strategy Planner</h3>
-                    <p class="text-gray-600 mb-4">Personalized strategy based on your life changes.</p>
-                    <textarea id="strategyInput" rows="3" class="w-full p-4 bg-gray-50 border rounded-xl mb-4 focus:ring-2 focus:ring-emerald-500 outline-none transition" placeholder="e.g., I bought a house and had a baby..."></textarea>
-                    <button id="btnStrategy" onclick="handleAI('strategy')" class="w-full bg-emerald-500 text-white py-3 rounded-xl font-bold hover:bg-emerald-600 transition flex items-center justify-center gap-2">
-                        <span>Plan Strategy</span>
-                    </button>
-                </div>
-            </div>
-            
-            <!-- AI Result Display -->
-            <div id="aiResult" class="hidden mt-8 bg-white rounded-2xl p-8 relative shadow-2xl border-2 border-emerald-400">
-                <div id="aiLoading" class="hidden absolute inset-0 bg-white/95 flex items-center justify-center z-10 rounded-2xl">
-                    <div class="flex flex-col items-center">
-                        <div class="spinner mb-4"></div>
-                        <p class="text-blue-900 font-bold animate-pulse">Consulting JMG Intelligence...</p>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+                <!-- Promo Graphic Card -->
+                <div class="bg-blue-900 rounded-3xl p-8 text-white relative flex flex-col justify-between shadow-2xl border-b-8 border-emerald-500">
+                    <div class="absolute top-4 right-4 bg-yellow-400 text-blue-900 font-black px-4 py-1 rounded-full text-xs animate-pulse">
+                        2025 FILING OPEN
+                    </div>
+                    <div>
+                        <h3 class="text-4xl font-extrabold mb-4 italic leading-none text-punch">MAXIMIZE YOUR <br><span class="text-emerald-400">REFUND</span></h3>
+                        <p class="text-blue-100 mb-8 max-w-sm">We find the deductions and credits others miss. Licensed in all 50 states, serving you virtually.</p>
+                        
+                        <div class="space-y-4 mb-8">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-emerald-500 flex items-center justify-center text-xs">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <span class="font-bold">100% Virtual & Secure</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-emerald-500 flex items-center justify-center text-xs">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <span class="font-bold">Hablamos Español</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white/10 p-4 rounded-2xl backdrop-blur-sm border border-white/20">
+                        <p class="text-sm font-bold text-emerald-400 uppercase tracking-widest mb-1">REFERRAL BONUS</p>
+                        <p class="text-xs">Refer a friend and get a <span class="text-yellow-400 font-bold">$75 Cash Bonus</span> or discount on your prep fee!</p>
                     </div>
                 </div>
-                <div id="aiContent" class="prose prose-blue max-w-none"></div>
-                <div class="mt-6 pt-6 border-t border-gray-100 flex flex-col sm:flex-row justify-between items-center gap-4">
-                    <p class="text-xs text-gray-500 italic">* AI insights are for informational purposes. Always verify with our licensed pros.</p>
-                    <div class="flex gap-2">
-                        <a href="mailto:info@jmgtaxservice.com" class="text-blue-600 font-bold text-sm hover:underline">Contact Expert</a>
-                        <button onclick="document.getElementById('aiResult').classList.add('hidden')" class="text-red-500 font-bold text-sm ml-4">Clear Result</button>
+
+                <!-- Call to Action Card -->
+                <div class="bg-gray-50 rounded-3xl p-8 border-2 border-gray-100 flex flex-col justify-center text-center lg:text-left">
+                    <div class="mb-6 p-6 bg-blue-900 rounded-2xl border-l-4 border-yellow-400 shadow-lg">
+                        <h4 class="text-2xl font-black text-yellow-400 italic mb-2">NEED CASH NOW?</h4>
+                        <p class="text-white text-3xl font-bold">CASH ADVANCE <br>UP TO <span class="text-emerald-400">$7,000</span></p>
+                        <p class="text-blue-200 text-xs mt-2 uppercase tracking-widest font-bold">* For those who qualify. Ask for details.</p>
                     </div>
+                    
+                    <p class="text-gray-600 mb-8 text-lg">Our expert team ensures your taxes are done right the first time, getting you the funds you need when you need them.</p>
+
+                    <a href="https://form.jotform.com/253015681932860" target="_blank" class="bg-emerald-500 hover:bg-emerald-600 text-white font-black py-5 rounded-2xl text-xl shadow-xl transition-all transform hover:-translate-y-1 block text-center">
+                        BOOK YOUR CONSULTATION <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Why Choose Section -->
-    <section class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold mb-12 text-blue-900">Why Choose JMG Tax Service?</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="p-6">
-                    <i class="fas fa-hand-holding-usd text-4xl text-emerald-500 mb-4"></i>
-                    <h3 class="text-xl font-bold mb-2">Maximum Refund</h3>
-                    <p class="text-gray-600">We analyze every possible deduction to ensure you keep more of your money.</p>
+    <!-- Marketing: The JMG Advantage -->
+    <section id="why-jmg" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-blue-900 mb-4" data-i18n="why_title">The JMG Advantage</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Why settle for retail tax chains when you can have personalized, expert service?</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-white rounded-2xl feature-card border border-gray-100 shadow-sm flex flex-col">
+                    <div class="h-48 w-full relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&w=600&q=80" alt="Fast Refund" class="w-full h-full object-cover img-overlay">
+                        <div class="absolute inset-0 bg-blue-900/20"></div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 mb-4">
+                            <i class="fas fa-rocket text-blue-900 text-xl"></i>
+                            <h3 class="text-xl font-bold text-blue-900">Faster Refunds</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm leading-relaxed">Advanced e-filing systems ensuring your return is processed by the IRS with lightning speed.</p>
+                    </div>
                 </div>
-                <div class="p-6">
-                    <i class="fas fa-laptop-house text-4xl text-emerald-500 mb-4"></i>
-                    <h3 class="text-xl font-bold mb-2">100% Virtual</h3>
-                    <p class="text-gray-600">File from anywhere using our secure, mobile-friendly portal.</p>
+                <!-- Feature 2: Hidden Credits -->
+                <div class="bg-white rounded-2xl feature-card border border-gray-100 shadow-sm flex flex-col">
+                    <div class="h-48 w-full relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=600&q=80" alt="Hidden Tax Credits" class="w-full h-full object-cover img-overlay">
+                        <div class="absolute inset-0 bg-emerald-900/20"></div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 mb-4">
+                            <i class="fas fa-search-dollar text-emerald-600 text-xl"></i>
+                            <h3 class="text-xl font-bold text-blue-900">Hidden Credits</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm leading-relaxed">Our experts dig deeper than any software to find credits most people miss.</p>
+                    </div>
                 </div>
-                <div class="p-6">
-                    <i class="fas fa-shield-alt text-4xl text-emerald-500 mb-4"></i>
-                    <h3 class="text-xl font-bold mb-2">Expert Accuracy</h3>
-                    <p class="text-gray-600">Licensed expertise for both simple and complex tax situations.</p>
+                <!-- Feature 3 -->
+                <div class="bg-white rounded-2xl feature-card border border-gray-100 shadow-sm flex flex-col">
+                    <div class="h-48 w-full relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80" alt="Secure Portal" class="w-full h-full object-cover img-overlay">
+                        <div class="absolute inset-0 bg-yellow-900/20"></div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 mb-4">
+                            <i class="fas fa-lock text-yellow-600 text-xl"></i>
+                            <h3 class="text-xl font-bold text-blue-900">Secure & Private</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm leading-relaxed">Bank-level encryption protects your most sensitive data. Your privacy is our priority.</p>
+                    </div>
+                </div>
+                <!-- Feature 4 -->
+                <div class="bg-white rounded-2xl feature-card border border-gray-100 shadow-sm flex flex-col">
+                    <div class="h-48 w-full relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1556742044-3c52d6e88c62?auto=format&fit=crop&w=600&q=80" alt="Cash Advance" class="w-full h-full object-cover img-overlay">
+                        <div class="absolute inset-0 bg-emerald-900/20"></div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center gap-3 mb-4">
+                            <i class="fas fa-hand-holding-usd text-emerald-600 text-xl"></i>
+                            <h3 class="text-xl font-bold text-blue-900">Cash Advance</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm leading-relaxed">Access a portion of your refund early with our secure cash advance options up to $7,000.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white pt-16 pb-8">
-        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+    <footer class="bg-gray-900 text-white pt-16 pb-8 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-12 mb-12 text-center md:text-left">
             <div>
-                <h4 class="text-lg font-bold mb-4 text-emerald-400">JMG Tax Service</h4>
-                <p class="text-gray-400 leading-relaxed">Professional tax preparation and consulting. Proudly partnering with LWG Tax Services to serve all 50 states.</p>
+                <h4 class="text-lg font-bold mb-4 text-emerald-400 uppercase tracking-widest">JMG Tax Service</h4>
+                <p class="text-gray-400 leading-relaxed">Professional tax preparation and consulting. Serving all 50 states virtually with bank-level security.</p>
             </div>
             <div>
-                <h4 class="text-lg font-bold mb-4 text-emerald-400">Contact Us</h4>
-                <p class="text-gray-300 flex items-center gap-3 mb-2">
-                    <i class="fas fa-phone text-emerald-500"></i> (760) 819-8216
+                <h4 class="text-lg font-bold mb-4 text-emerald-400 uppercase tracking-widest">Contact Info</h4>
+                <p class="text-gray-300 mb-2">
+                    <a href="tel:7608198216" class="hover:text-emerald-400 transition">
+                        <i class="fas fa-phone mr-2 text-emerald-500"></i> (760) 819-8216
+                    </a>
                 </p>
-                <p class="text-gray-300 flex items-center gap-3 mb-2">
-                    <i class="fas fa-envelope text-emerald-500"></i> info@jmgtaxservice.com
+                <p class="text-gray-300 mb-2">
+                    <a href="mailto:info@jmgtaxservice.com" class="hover:text-emerald-400 transition">
+                        <i class="fas fa-envelope mr-2 text-emerald-500"></i> info@jmgtaxservice.com
+                    </a>
                 </p>
-                <p class="text-gray-300 flex items-center gap-3">
-                    <i class="fas fa-globe text-emerald-500"></i> jmgtaxservice.com
-                </p>
+                <p class="text-gray-300"><i class="fas fa-globe mr-2 text-emerald-500"></i> Nationwide Service</p>
             </div>
             <div>
-                <h4 class="text-lg font-bold mb-4 text-emerald-400">Hours (PST)</h4>
+                <h4 class="text-lg font-bold mb-4 text-emerald-400 uppercase tracking-widest">Office Hours</h4>
                 <p class="text-gray-400">Mon - Fri: 9:00 AM - 6:00 PM</p>
                 <p class="text-gray-400">Sat: 10:00 AM - 2:00 PM</p>
-                <p class="text-gray-400">Sun: Closed</p>
+                <p class="text-emerald-500 font-bold mt-2 italic">Extended hours during tax season!</p>
             </div>
         </div>
         <div class="text-center text-gray-600 text-sm border-t border-gray-800 pt-8">
-            &copy; 2025 JMG Tax Service. All Rights Reserved.
+            &copy; 2025 JMG Tax Service. All Rights Reserved. Precision • Integrity • Results.
         </div>
     </footer>
 
     <script>
-        const apiKey = ""; // Runtime-provided key
-
-        async function callGemini(query, sys) {
-            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
-            const payload = {
-                contents: [{ parts: [{ text: query }] }],
-                systemInstruction: { parts: [{ text: sys }] }
-            };
-
-            let delays = [1000, 2000, 4000, 8000, 16000];
-            for (let i = 0; i < 5; i++) {
-                try {
-                    const response = await fetch(url, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-                    
-                    if (!response.ok) {
-                        const errorData = await response.json();
-                        throw new Error(errorData.error?.message || 'API Error');
-                    }
-                    
-                    const data = await response.json();
-                    return data.candidates[0].content.parts[0].text;
-                } catch (e) {
-                    if (i === 4) throw e;
-                    await new Promise(resolve => setTimeout(resolve, delays[i]));
-                }
-            }
-        }
-
-        async function handleAI(type) {
-            const resultArea = document.getElementById('aiResult');
-            const content = document.getElementById('aiContent');
-            const loader = document.getElementById('aiLoading');
-            const inputField = type === 'assistant' ? document.getElementById('aiInput') : document.getElementById('strategyInput');
-            const input = inputField.value.trim();
-            
-            if (!input) return;
-
-            resultArea.classList.remove('hidden');
-            loader.classList.remove('hidden');
-            content.innerHTML = "";
-            resultArea.scrollIntoView({ behavior: 'smooth' });
-
-            const systemPrompt = `You are the JMG Tax AI Assistant. You are professional, expert, and encouraging. 
-            Company Identity: JMG Tax Service.
-            Contact: info@jmgtaxservice.com | (760) 819-8216.
-            Tone: Helpful, trustworthy, and clear.
-            Scope: We serve all 50 U.S. states and specialize in individual and business tax prep.
-            
-            Instructions:
-            1. Use professional but accessible language.
-            2. Format responses with clear Markdown (headers, bold text, bullet points).
-            3. Always mention that tax laws change and a professional review is best.
-            4. If the user mentions life changes (moving, baby, home), explain the potential tax impact.
-            5. End with a specific call to action: "Ready to maximize your refund? Email us at info@jmgtaxservice.com or call (760) 819-8216 today!"`;
-
-            try {
-                const responseText = await callGemini(input, systemPrompt);
-                content.innerHTML = marked.parse(responseText);
-                inputField.value = ""; 
-            } catch (e) {
-                console.error('AI Error:', e);
-                content.innerHTML = `
-                <div class="p-6 bg-red-50 border border-red-200 rounded-xl text-red-800">
-                    <p class="font-bold mb-2"><i class="fas fa-exclamation-triangle mr-2"></i> Service Temporarily Unavailable</p>
-                    <p>We're experiencing heavy traffic. Please email us directly at <strong>info@jmgtaxservice.com</strong> or call <strong>(760) 819-8216</strong> for immediate assistance.</p>
-                </div>`;
-            } finally {
-                loader.classList.add('hidden');
-            }
-        }
-
         const translations = {
             en: {
                 hero_badge: "Licensed in All 50 States",
-                hero_title: "Maximize Your Refund.<br>Minimize The Stress.",
-                hero_subtitle: "Expert tax preparation for individuals and businesses. Fast, secure, and fully remote.",
-                btn_book: "Book Appointment",
-                ai_hub_title: "✨ JMG Intelligence Center",
-                ai_hub_subtitle: "Get instant answers powered by Google Gemini",
-                ai_tool1_name: "Smart Tax Assistant",
-                ai_tool2_name: "Refund Strategy Planner"
+                hero_title: "Get Your Maximum Refund.<br>Guaranteed Accuracy.",
+                hero_subtitle: "Don't leave money on the table. Join thousands of satisfied clients who trust JMG Tax Service for professional, virtual tax preparation.",
+                btn_book: "Start Your Filing Now",
+                why_title: "The JMG Advantage",
+                nav_book: "Book Now"
             },
             es: {
                 hero_badge: "Licenciado en los 50 Estados",
-                hero_title: "Maximice su Reembolso.<br>Minimice el Estrés.",
-                hero_subtitle: "Preparación experta para individuos y negocios. Rápido, seguro y remoto.",
-                btn_book: "Agendar Cita",
-                ai_hub_title: "✨ Centro de Inteligencia JMG",
-                ai_hub_subtitle: "Respuestas al instante con Google Gemini",
-                ai_tool1_name: "Asistente Fiscal Inteligente",
-                ai_tool2_name: "Planificador Estratégico"
+                hero_title: "Obtenga su Reembolso Máximo.<br>Exactitud Garantizada.",
+                hero_subtitle: "No deje dinero sobre la mesa. Únase a miles de clientes satisfechos que confían en JMG Tax Service para una preparación de impuestos profesional y virtual.",
+                btn_book: "Comience su Declaración Ahora",
+                why_title: "La Ventaja de JMG",
+                nav_book: "Reservar"
             }
         };
 
