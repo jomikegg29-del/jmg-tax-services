@@ -30,6 +30,8 @@
         .ai-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); border-color: #3b82f6; }
         .prose { color: #374151; max-width: none; }
         .prose strong { color: #1e3a8a; }
+        .prose h1, .prose h2, .prose h3 { color: #1e3a8a; margin-top: 1.5rem; margin-bottom: 0.5rem; font-weight: 700; }
+        .prose ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1rem; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen">
@@ -185,7 +187,7 @@
     </footer>
 
     <script>
-        const apiKey = ""; // Handled by environment
+        const apiKey = ""; // Handled by environment at runtime
 
         async function callGemini(query, sys) {
             const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
@@ -206,6 +208,7 @@
                     return data.candidates[0].content.parts[0].text;
                 } catch (e) {
                     if (i === 4) throw e;
+                    // Exponential backoff
                     await new Promise(r => setTimeout(r, Math.pow(2, i) * 1000));
                 }
             }
@@ -215,30 +218,41 @@
             const resultArea = document.getElementById('aiResult');
             const content = document.getElementById('aiContent');
             const loader = document.getElementById('aiLoading');
-            let input = type === 'assistant' ? document.getElementById('aiInput').value : document.getElementById('strategyInput').value;
+            const inputField = type === 'assistant' ? document.getElementById('aiInput') : document.getElementById('strategyInput');
+            let input = inputField.value;
             
-            if (!input) return;
+            if (!input.trim()) return;
 
             resultArea.classList.remove('hidden');
             loader.classList.remove('hidden');
             content.innerHTML = "";
 
-            const systemPrompt = `You are the JMG Tax AI Assistant. You are professional, encouraging, and accurate. 
-            Our details:
-            - Business: JMG Tax Service
-            - Email: info@jmgtaxservice.com
-            - Phone: (760) 819-8216
-            - States: All 50 States
-            Format responses with Markdown. Always end by inviting them to email or call us for a full review.`;
+            const systemPrompt = `You are the JMG Tax AI Assistant. You are professional, expert, and encouraging. 
+            Company Identity: JMG Tax Service.
+            Contact: info@jmgtaxservice.com | (760) 819-8216.
+            Scope: We serve all 50 U.S. states.
+            Goal: Provide helpful initial tax guidance and explain how our professional service can maximize their specific situation.
+            
+            Instructions:
+            1. Use professional but accessible language.
+            2. Format responses with clear Markdown (headers, bold text, bullet points).
+            3. Always mention that tax laws change and a professional review is best.
+            4. End with a specific call to action: "Ready to maximize your refund? Email us at info@jmgtaxservice.com or call (760) 819-8216 today!"`;
 
             try {
                 const response = await callGemini(input, systemPrompt);
                 content.innerHTML = marked.parse(response);
                 resultArea.scrollIntoView({ behavior: 'smooth' });
+                inputField.value = ""; // Clear input on success
             } catch (e) {
-                content.innerHTML = `<div class="p-4 bg-red-50 text-red-700 rounded-xl">
-                    <strong>Connection Interrupted.</strong><br>
-                    Please email us directly at info@jmgtaxservice.com or call (760) 819-8216 for your tax questions.
+                content.innerHTML = `
+                <div class="p-6 bg-red-50 border border-red-200 rounded-xl text-red-800">
+                    <p class="font-bold mb-2"><i class="fas fa-exclamation-triangle mr-2"></i> Service Temporarily Unavailable</p>
+                    <p>We're experiencing heavy traffic or a connection issue. Please don't wait for the AI—our human experts are ready to help!</p>
+                    <div class="mt-4 flex gap-4">
+                        <a href="tel:7608198216" class="font-bold underline">Call (760) 819-8216</a>
+                        <a href="mailto:info@jmgtaxservice.com" class="font-bold underline">Email info@jmgtaxservice.com</a>
+                    </div>
                 </div>`;
             } finally {
                 loader.classList.add('hidden');
@@ -274,7 +288,9 @@
             document.getElementById('langLabel').innerText = lang === 'en' ? 'ESPAÑOL' : 'ENGLISH';
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
-                if (translations[lang][key]) el.innerHTML = translations[lang][key];
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
             });
         }
         document.getElementById('langToggle').addEventListener('click', () => updateLanguage(currentLang === 'en' ? 'es' : 'en'));
