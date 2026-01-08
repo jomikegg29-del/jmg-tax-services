@@ -26,6 +26,10 @@
             border-radius: 2px;
         }
         .feature-card:hover { transform: translateY(-5px); transition: all 0.3s ease; }
+        .bg-pattern {
+            background-color: #f8fafc;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%231e3a8a' fill-opacity='0.03'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm56-76c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 56c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-13-10c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm66 10c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm-9-49c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm-43 57c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm-28-41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen">
@@ -62,8 +66,8 @@
     </nav>
 
     <!-- Hero Section -->
-    <header class="hero-bg text-white py-28">
-        <div class="max-w-7xl mx-auto px-4 text-center">
+    <header class="hero-bg text-white py-28 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 text-center relative z-10">
             <span class="inline-block bg-emerald-500 text-white px-4 py-1 rounded-full text-xs font-black mb-6 tracking-widest uppercase" data-i18n="hero_tagline">Licensed Professional Tax Preparation in all 50 States</span>
             <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight uppercase italic" data-i18n="hero_title">
                 Get Your Maximum Refund. Guaranteed.
@@ -82,8 +86,30 @@
         </div>
     </header>
 
-    <!-- Why Choose Us / Graphic Section -->
-    <section id="services" class="py-20 bg-white">
+    <!-- Trust Badges Bar -->
+    <div class="bg-white border-b border-gray-100 py-8">
+        <div class="max-w-7xl mx-auto px-4 flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all">
+            <div class="flex items-center gap-2">
+                <i class="fas fa-university text-3xl"></i>
+                <span class="font-black text-xs uppercase tracking-tighter">IRS Authorized</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <i class="fas fa-lock text-3xl"></i>
+                <span class="font-black text-xs uppercase tracking-tighter">Secure Data</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <i class="fas fa-map-marked-alt text-3xl"></i>
+                <span class="font-black text-xs uppercase tracking-tighter">50 States</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <i class="fas fa-user-shield text-3xl"></i>
+                <span class="font-black text-xs uppercase tracking-tighter">Audit Protection</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Why Choose Us -->
+    <section id="services" class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-5xl font-black text-blue-900 uppercase" data-i18n="services_h">Comprehensive Tax Solutions</h2>
@@ -91,49 +117,55 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Feature 1 -->
-                <div class="feature-card bg-gray-50 p-8 rounded-3xl text-center border border-gray-100 shadow-sm">
-                    <div class="w-20 h-20 bg-blue-100 text-blue-900 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl">
+                <div class="feature-card bg-slate-50 p-8 rounded-3xl text-center border border-gray-100 shadow-sm relative overflow-hidden group">
+                    <div class="w-20 h-20 bg-blue-100 text-blue-900 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl relative z-10">
                         <i class="fas fa-laptop-house"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-blue-900 uppercase" data-i18n="feat1_h">100% Virtual</h3>
-                    <p class="text-gray-600 text-sm" data-i18n="feat1_p">Secure, remote filing from any device, anywhere in the USA.</p>
+                    <h3 class="text-xl font-bold mb-3 text-blue-900 uppercase relative z-10" data-i18n="feat1_h">100% Virtual</h3>
+                    <p class="text-gray-600 text-sm relative z-10" data-i18n="feat1_p">Secure, remote filing from any device, anywhere in the USA.</p>
                 </div>
-                <!-- Feature 2 -->
-                <div class="feature-card bg-gray-50 p-8 rounded-3xl text-center border border-gray-100 shadow-sm">
-                    <div class="w-20 h-20 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl">
+                <div class="feature-card bg-slate-50 p-8 rounded-3xl text-center border border-gray-100 shadow-sm relative overflow-hidden group">
+                    <div class="w-20 h-20 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl relative z-10">
                         <i class="fas fa-user-check"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-blue-900 uppercase" data-i18n="feat2_h">ITIN Experts</h3>
-                    <p class="text-gray-600 text-sm" data-i18n="feat2_p">Specialized assistance for individuals filing with an ITIN.</p>
+                    <h3 class="text-xl font-bold mb-3 text-blue-900 uppercase relative z-10" data-i18n="feat2_h">ITIN Experts</h3>
+                    <p class="text-gray-600 text-sm relative z-10" data-i18n="feat2_p">Specialized assistance for individuals filing with an ITIN.</p>
                 </div>
-                <!-- Feature 3 -->
-                <div class="feature-card bg-gray-50 p-8 rounded-3xl text-center border border-gray-100 shadow-sm">
-                    <div class="w-20 h-20 bg-yellow-100 text-yellow-600 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl">
+                <div class="feature-card bg-slate-50 p-8 rounded-3xl text-center border border-gray-100 shadow-sm relative overflow-hidden group">
+                    <div class="w-20 h-20 bg-yellow-100 text-yellow-600 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl relative z-10">
                         <i class="fas fa-hand-holding-usd"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-blue-900 uppercase" data-i18n="feat3_h">Max Refund</h3>
-                    <p class="text-gray-600 text-sm" data-i18n="feat3_p">We identify every credit and deduction to maximize your return.</p>
+                    <h3 class="text-xl font-bold mb-3 text-blue-900 uppercase relative z-10" data-i18n="feat3_h">Max Refund</h3>
+                    <p class="text-gray-600 text-sm relative z-10" data-i18n="feat3_p">We identify every credit and deduction to maximize your return.</p>
                 </div>
-                <!-- Feature 4 -->
-                <div class="feature-card bg-gray-50 p-8 rounded-3xl text-center border border-gray-100 shadow-sm">
-                    <div class="w-20 h-20 bg-slate-100 text-slate-700 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl">
+                <div class="feature-card bg-slate-50 p-8 rounded-3xl text-center border border-gray-100 shadow-sm relative overflow-hidden group">
+                    <div class="w-20 h-20 bg-slate-200 text-slate-700 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl relative z-10">
                         <i class="fas fa-language"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-blue-900 uppercase" data-i18n="feat4_h">Bilingual Support</h3>
-                    <p class="text-gray-600 text-sm" data-i18n="feat4_p">Full service available in both English and Spanish.</p>
+                    <h3 class="text-xl font-bold mb-3 text-blue-900 uppercase relative z-10" data-i18n="feat4_h">Bilingual Support</h3>
+                    <p class="text-gray-600 text-sm relative z-10" data-i18n="feat4_p">Full service available in both English and Spanish.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Professional Context Section -->
-    <section class="py-20 bg-slate-50 overflow-hidden">
+    <section class="py-24 bg-pattern overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
             <div class="relative">
-                <img src="https://images.unsplash.com/photo-1573164060897-425941c30362?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Professional Consultation" class="rounded-[3rem] shadow-2xl relative z-10">
-                <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-emerald-500 rounded-full z-0 opacity-20"></div>
-                <div class="absolute -top-6 -left-6 w-32 h-32 bg-blue-900 rounded-full z-0 opacity-10"></div>
+                <div class="grid grid-cols-2 gap-4">
+                    <img src="https://images.unsplash.com/photo-1554224154-26032ffc0d07?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Work" class="rounded-3xl shadow-lg mt-8">
+                    <img src="https://images.unsplash.com/photo-1573164060897-425941c30362?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Consultation" class="rounded-3xl shadow-lg">
+                </div>
+                <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-3xl shadow-xl flex items-center gap-4 border border-blue-50">
+                    <div class="w-12 h-12 bg-emerald-500 rounded-full flex items-center justify-center text-white">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <div>
+                        <p class="font-black text-blue-900 leading-none">IRS Verified</p>
+                        <p class="text-xs text-gray-400">Authorized Provider</p>
+                    </div>
+                </div>
             </div>
             <div>
                 <h2 class="text-3xl md:text-4xl font-black text-blue-900 mb-6 uppercase" data-i18n="care_title">Trusted National Service</h2>
@@ -159,49 +191,41 @@
     </section>
 
     <!-- SERVICE FEES SECTION -->
-    <section id="fees" class="py-24 bg-white border-y border-gray-100">
-        <div class="max-w-4xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-black text-blue-900 uppercase italic tracking-tighter" data-i18n="fee_title">Service Fees</h2>
-                <div class="gradient-border"></div>
-                <p class="text-gray-500 font-bold" data-i18n="fee_subtitle">Clear, upfront pricing for your peace of mind</p>
+    <section id="fees" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="order-2 lg:order-1">
+                <div class="text-left mb-10">
+                    <h2 class="text-4xl md:text-5xl font-black text-blue-900 uppercase italic tracking-tighter" data-i18n="fee_title">Service Fees</h2>
+                    <div class="h-1 w-20 bg-emerald-500 mt-4 rounded-full"></div>
+                    <p class="text-gray-500 font-bold mt-4" data-i18n="fee_subtitle">Clear, upfront pricing for your peace of mind</p>
+                </div>
+
+                <div class="bg-slate-50 rounded-3xl border border-gray-200 shadow-xl p-8 relative overflow-hidden">
+                    <div class="space-y-2 relative z-10">
+                        <div class="fee-item flex justify-between items-center flex-wrap gap-4">
+                            <span class="text-lg font-bold text-gray-700" data-i18n="fee_1_name">W-2 Only</span>
+                            <span class="text-xl font-black text-emerald-600" data-i18n="fee_1_price">starting at $259.99</span>
+                        </div>
+                        <div class="fee-item flex justify-between items-center flex-wrap gap-4">
+                            <span class="text-lg font-bold text-gray-700" data-i18n="fee_2_name">W-2 w/ Dependents</span>
+                            <span class="text-xl font-black text-emerald-600" data-i18n="fee_2_price">starting at $459.99</span>
+                        </div>
+                        <div class="fee-item flex justify-between items-center flex-wrap gap-4">
+                            <span class="text-lg font-bold text-gray-700" data-i18n="fee_3_name">Self-Employed / Small Business</span>
+                            <span class="text-xl font-black text-emerald-600" data-i18n="fee_3_price">$659.99–$1,259.99</span>
+                        </div>
+                        <div class="fee-item flex justify-between items-center flex-wrap gap-4">
+                            <span class="text-lg font-bold text-gray-700" data-i18n="fee_4_name">Advanced Business Returns</span>
+                            <span class="text-xl font-black text-emerald-600" data-i18n="fee_4_price">starting at $1,500+</span>
+                        </div>
+                    </div>
+                    <div class="mt-6 p-4 bg-blue-50 rounded-xl border border-blue-100 text-xs text-blue-900 font-bold italic" data-i18n="fee_processing_note">
+                        <i class="fas fa-info-circle mr-2"></i> A processing/administrative fee of $150–$165 applies for secure document handling.
+                    </div>
+                </div>
             </div>
-
-            <div class="bg-gray-50 rounded-3xl border border-gray-200 shadow-xl p-8 md:p-12 relative overflow-hidden">
-                <!-- Watermark Icon -->
-                <i class="fas fa-file-invoice-dollar absolute -bottom-10 -right-10 text-9xl text-gray-200 rotate-12"></i>
-                
-                <div class="space-y-2 relative z-10">
-                    <div class="fee-item flex justify-between items-center flex-wrap gap-4">
-                        <span class="text-lg font-bold text-gray-700" data-i18n="fee_1_name">W-2 Only</span>
-                        <span class="text-xl font-black text-emerald-600" data-i18n="fee_1_price">starting at $259.99</span>
-                    </div>
-                    <div class="fee-item flex justify-between items-center flex-wrap gap-4">
-                        <span class="text-lg font-bold text-gray-700" data-i18n="fee_2_name">W-2 w/ Dependents</span>
-                        <span class="text-xl font-black text-emerald-600" data-i18n="fee_2_price">starting at $459.99</span>
-                    </div>
-                    <div class="fee-item flex justify-between items-center flex-wrap gap-4">
-                        <span class="text-lg font-bold text-gray-700" data-i18n="fee_3_name">Self-Employed / Small Business</span>
-                        <span class="text-xl font-black text-emerald-600" data-i18n="fee_3_price">$659.99–$1,259.99</span>
-                    </div>
-                    <div class="fee-item flex justify-between items-center flex-wrap gap-4">
-                        <span class="text-lg font-bold text-gray-700" data-i18n="fee_4_name">Advanced Business Returns</span>
-                        <span class="text-xl font-black text-emerald-600" data-i18n="fee_4_price">starting at $1,500+</span>
-                    </div>
-                    <div class="fee-item flex justify-between items-center flex-wrap gap-4">
-                        <span class="text-lg font-bold text-gray-700" data-i18n="fee_5_name">Additional forms</span>
-                        <span class="text-xl font-black text-emerald-600" data-i18n="fee_5_price">$25–$50 per form</span>
-                    </div>
-                </div>
-
-                <div class="mt-10 p-6 bg-blue-100/50 rounded-2xl border border-blue-100 relative z-10">
-                    <p class="text-blue-900 font-semibold mb-4" data-i18n="fee_processing_note">
-                        <i class="fas fa-info-circle mr-2"></i> A processing/administrative fee of $150–$165 may apply. This covers secure document handling and IRS submission.
-                    </p>
-                    <p class="text-gray-600 text-sm leading-relaxed italic" data-i18n="fee_final_note">
-                        Final pricing depends on complexity. Book a consultation for a detailed quote.
-                    </p>
-                </div>
+            <div class="order-1 lg:order-2">
+                <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Tax Documents" class="rounded-[3rem] shadow-2xl grayscale hover:grayscale-0 transition-all duration-700">
             </div>
         </div>
     </section>
@@ -209,9 +233,15 @@
     <!-- Promotion Section -->
     <section class="py-24 bg-blue-900 text-white relative">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="bg-white text-blue-900 p-12 rounded-[3rem] shadow-2xl flex flex-col lg:flex-row items-center gap-12">
-                <div class="lg:w-1/2">
-                    <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Finance Growth" class="rounded-3xl shadow-lg">
+            <div class="bg-white text-blue-900 p-8 md:p-12 rounded-[3rem] shadow-2xl flex flex-col lg:flex-row items-center gap-12 relative overflow-hidden">
+                <!-- Graphical Accent -->
+                <div class="absolute top-0 right-0 w-32 h-32 bg-yellow-400 rounded-bl-[100%] opacity-20"></div>
+                
+                <div class="lg:w-1/2 relative">
+                    <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Finance Growth" class="rounded-3xl shadow-lg relative z-10">
+                    <div class="absolute -bottom-4 -right-4 bg-emerald-500 text-white px-8 py-4 rounded-2xl font-black shadow-lg z-20 animate-bounce">
+                        SECURE NOW
+                    </div>
                 </div>
                 <div class="lg:w-1/2">
                     <h3 class="text-4xl font-black uppercase italic mb-6 leading-tight" data-i18n="promo_h">Fast Access To Your Funds</h3>
@@ -241,21 +271,21 @@
     </section>
 
     <!-- Testimonials -->
-    <section class="py-24 bg-gray-50">
+    <section class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4">
             <h2 class="text-3xl font-black text-center mb-16 text-blue-900 uppercase italic" data-i18n="test_h">Trusted by Families Nationwide</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm">
+                <div class="bg-slate-50 p-8 rounded-3xl border border-gray-100 shadow-sm">
                     <div class="flex text-yellow-400 mb-4 text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                     <p class="text-gray-600 italic mb-6" data-i18n="test1_p">"Excellent service! They explained everything in Spanish and helped me with my ITIN. I got a much bigger refund than last year."</p>
                     <p class="font-black text-blue-900 text-sm">— Maria G., California</p>
                 </div>
-                <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm">
+                <div class="bg-slate-50 p-8 rounded-3xl border border-gray-100 shadow-sm">
                     <div class="flex text-yellow-400 mb-4 text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                     <p class="text-gray-600 italic mb-6" data-i18n="test2_p">"Very professional and fast. I love that I could do everything from my phone since I work long hours."</p>
                     <p class="font-black text-blue-900 text-sm">— Juan R., Texas</p>
                 </div>
-                <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm">
+                <div class="bg-slate-50 p-8 rounded-3xl border border-gray-100 shadow-sm">
                     <div class="flex text-yellow-400 mb-4 text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                     <p class="text-gray-600 italic mb-6" data-i18n="test3_p">"Helping my family with our taxes for 3 years now. They really care about the community."</p>
                     <p class="font-black text-blue-900 text-sm">— Elena V., Florida</p>
@@ -277,7 +307,6 @@
                 </svg>
                 <p class="text-gray-400 font-medium" data-i18n="foot_desc">Professional tax preparation for families and businesses. Serving all 50 states virtually with bank-level security.</p>
                 
-                <!-- Partnership Reference -->
                 <div class="mt-8 pt-6 border-t border-slate-900/50">
                     <p class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-2" data-i18n="partner_label">Strategic Partnership</p>
                     <div class="flex items-center gap-3">
@@ -342,9 +371,7 @@
                 fee_2_name: "W-2 w/ Dependents", fee_2_price: "starting at $459.99",
                 fee_3_name: "Self-Employed / Small Business", fee_3_price: "$659.99–$1,259.99",
                 fee_4_name: "Advanced Business Returns", fee_4_price: "starting at $1,500+",
-                fee_5_name: "Additional forms", fee_5_price: "$25–$50 per form",
-                fee_processing_note: "A processing/administrative fee of $150–$165 may apply. This covers secure document handling and IRS submission.",
-                fee_final_note: "Final pricing depends on complexity. Book a consultation for a detailed quote.",
+                fee_processing_note: "A processing fee of $150–$165 applies for secure document handling.",
                 promo_h: "Fast Access To Your Funds",
                 promo1_h: "REFERRAL REWARDS",
                 promo1_p: "Refer a friend and get a $100 Cash Bonus Credit on your prep fee!",
@@ -385,9 +412,7 @@
                 fee_2_name: "W-2 con Dependientes", fee_2_price: "desde $459.99",
                 fee_3_name: "Independiente / Pequeño Negocio", fee_3_price: "$659.99–$1,259.99",
                 fee_4_name: "Declaraciones Avanzadas", fee_4_price: "desde $1,500+",
-                fee_5_name: "Formularios adicionales", fee_5_price: "$25–$50 por formulario",
-                fee_processing_note: "Puede aplicarse una tarifa de procesamiento de $150–$165 por el manejo seguro y envío al IRS.",
-                fee_final_note: "El precio final depende de la complejidad. Reserve una consulta para una cotización.",
+                fee_processing_note: "Se aplica una tarifa de $150–$165 por el manejo seguro de documentos.",
                 promo_h: "Acceso Rápido a sus Fondos",
                 promo1_h: "BONO POR RECOMENDACIÓN",
                 promo1_p: "¡Recomiende a un amigo y reciba un crédito de $100 en su tarifa!",
