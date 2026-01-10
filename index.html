@@ -3,39 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JMG Tax Service - Professional Tax Solutions</title>
+    <title>JMG Tax Service - Professional Tax Solutions for the Latino Community</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Open Sans', sans-serif; scroll-behavior: smooth; }
         h1, h2, h3, h4, .brand-font { font-family: 'Montserrat', sans-serif; }
+        
         .hero-bg {
-            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(30, 58, 138, 0.7)), url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background: linear-gradient(rgba(30, 58, 138, 0.85), rgba(15, 23, 42, 0.7)), url('https://images.unsplash.com/photo-1543269664-76bc3997d9ea?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
             background-size: cover;
             background-position: center;
         }
-        .logo-svg { height: 52px; width: auto; }
-        .fee-item { border-bottom: 1px solid #e2e8f0; padding: 1.25rem 0; }
-        .fee-item:last-child { border-bottom: none; }
-        .gradient-border {
-            background: linear-gradient(to right, #1e3a8a, #10b981);
-            height: 4px;
-            width: 80px;
-            margin: 1rem auto;
-            border-radius: 2px;
+
+        .cta-gradient {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
         }
-        .feature-card:hover { transform: translateY(-5px); transition: all 0.3s ease; }
-        .bg-pattern {
-            background-color: #f8fafc;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%231e3a8a' fill-opacity='0.03'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm56-76c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 56c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-13-10c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm66 10c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm-9-49c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm-43 57c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zm-28-41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+        .logo-svg { height: 52px; width: auto; }
+        
+        /* Language handling */
+        [lang="es"] { display: none; }
+        .lang-es [lang="en"] { display: none; }
+        .lang-es [lang="es"] { display: block; }
+        .lang-es .flex[lang="es"] { display: flex; }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+        }
+
+        .promo-card {
+            transition: transform 0.3s ease;
+            overflow: hidden;
+        }
+        .promo-card:hover { transform: scale(1.02); }
+
+        /* Enhanced Language Toggle Animation */
+        .lang-pulse {
+            animation: pulse-green 2s infinite;
+        }
+        @keyframes pulse-green {
+            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6); }
+            70% { box-shadow: 0 0 0 12px rgba(16, 185, 129, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen">
+<body class="bg-slate-50 text-gray-800 flex flex-col min-h-screen">
 
     <!-- Navigation -->
-    <nav class="bg-white shadow-lg sticky top-0 z-50">
+    <nav class="bg-white shadow-md sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
                 <div class="flex items-center">
@@ -49,16 +70,33 @@
                         </svg>
                     </a>
                 </div>
-                <div class="hidden lg:flex items-center space-x-8 font-bold text-blue-900">
-                    <a href="#services" class="hover:text-emerald-500 transition-colors" data-i18n="nav_services">Our Services</a>
-                    <a href="#fees" class="hover:text-emerald-500 transition-colors" data-i18n="nav_fees">Service Fees</a>
-                </div>
-                <div class="flex items-center space-x-4">
-                    <a href="https://form.jotform.com/253238461972059" target="_blank" class="bg-emerald-500 text-white px-6 py-2.5 rounded-xl text-sm font-black hover:bg-emerald-600 transition shadow-md flex items-center gap-2">
-                        <i class="fas fa-calendar-alt"></i> <span data-i18n="nav_book">Book Now</span>
+                
+                <div class="hidden lg:flex items-center space-x-8">
+                    <!-- Book Your Appointment Tab (Updated to Yellow) -->
+                    <a href="https://form.jotform.com/253015681932860" target="_blank" class="flex items-center gap-2 bg-yellow-400 text-blue-900 px-4 py-2 rounded-xl font-black hover:bg-yellow-500 transition shadow-sm">
+                        <i class="far fa-calendar-check"></i>
+                        <span lang="en">Book Your Appointment</span>
+                        <span lang="es">Reserve su Cita</span>
                     </a>
-                    <button id="langToggle" class="bg-blue-50 hover:bg-blue-100 px-3 py-1.5 rounded-full text-xs font-black text-blue-900 border-2 border-blue-200 transition-all">
+
+                    <a href="tel:7608198216" class="text-blue-900 px-4 py-2 rounded-lg font-bold flex items-center gap-2 hover:bg-blue-50 transition">
+                        <i class="fas fa-phone"></i> (760) 819-8216
+                    </a>
+
+                    <!-- Highly Visible Language Toggle -->
+                    <button id="langToggle" class="lang-pulse bg-blue-900 text-white px-6 py-2.5 rounded-full font-black text-sm uppercase tracking-widest hover:bg-emerald-600 transition shadow-lg flex items-center gap-2 border-2 border-emerald-500">
+                        <i class="fas fa-globe-americas"></i>
                         <span id="langLabel">ESPAÑOL</span>
+                    </button>
+                </div>
+
+                <!-- Mobile Header Actions -->
+                <div class="lg:hidden flex items-center gap-3">
+                    <a href="https://form.jotform.com/253015681932860" target="_blank" class="bg-yellow-400 text-blue-900 p-2 rounded-lg shadow-md">
+                        <i class="fas fa-calendar-alt"></i>
+                    </a>
+                    <button id="langToggleMobile" class="bg-blue-900 text-white font-black text-xs px-3 py-2 rounded-md">
+                        <span id="langLabelMobile">ES</span>
                     </button>
                 </div>
             </div>
@@ -66,205 +104,153 @@
     </nav>
 
     <!-- Hero Section -->
-    <header class="hero-bg text-white py-28 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 text-center relative z-10">
-            <span class="inline-block bg-emerald-500 text-white px-4 py-1 rounded-full text-xs font-black mb-6 tracking-widest uppercase" data-i18n="hero_tagline">Licensed Professional Tax Preparation in all 50 States</span>
-            <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight uppercase italic" data-i18n="hero_title">
-                Get Your Maximum Refund. Guaranteed.
-            </h1>
-            <p class="text-xl md:text-2xl text-blue-50 mb-10 max-w-3xl mx-auto font-medium" data-i18n="hero_subtitle">
-                Professional, secure, and 100% virtual tax solutions. We specialize in helping the Latino community with bilingual experts.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-6">
-                <a href="https://form.jotform.com/253147394856064" target="_blank" class="bg-yellow-400 text-blue-900 px-10 py-5 rounded-2xl font-black text-xl hover:bg-yellow-300 transition shadow-xl flex items-center justify-center gap-2">
-                    <i class="fas fa-file-invoice-dollar"></i> <span data-i18n="btn_book">Start My Refund</span>
-                </a>
-                <a href="tel:7608198216" class="bg-white/10 backdrop-blur-md text-white border-2 border-white/20 px-10 py-5 rounded-2xl font-black text-xl hover:bg-white/20 transition flex items-center justify-center gap-2">
-                    <i class="fas fa-phone"></i> (760) 819-8216
-                </a>
+    <header class="hero-bg text-white py-24 md:py-32 relative">
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="max-w-3xl">
+                <span class="inline-block bg-yellow-400 text-blue-900 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-widest mb-6">
+                    <span lang="en">Serving Hispanic Families & Entrepreneurs in all 50 States</span>
+                    <span lang="es">Sirviendo a Familias y Emprendedores Hispanos en los 50 Estados</span>
+                </span>
+                <h1 class="text-5xl md:text-7xl font-black mb-6 leading-[1.1] uppercase">
+                    <span lang="en">Helping Our Latino Community <br><span class="text-emerald-400 text-3xl md:text-5xl">With Their Taxes.</span></span>
+                    <span lang="es">Ayudando a Nuestra Comunidad Latina <br><span class="text-emerald-400 text-3xl md:text-5xl">Con sus Impuestos.</span></span>
+                </h1>
+                <p class="text-xl md:text-2xl text-blue-50 mb-10 font-medium leading-relaxed">
+                    <span lang="en">Hablamos Español. Get your maximum refund with professional service that understands your family's and business's needs.</span>
+                    <span lang="es">Hablamos Español. Obtenga su reembolso máximo con un servicio profesional que entiende las necesidades de su familia y su negocio.</span>
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="https://form.jotform.com/253147394856064" target="_blank" class="cta-gradient text-white px-10 py-5 rounded-2xl font-black text-xl hover:shadow-2xl hover:-translate-y-1 transition-all flex items-center justify-center gap-3">
+                        <i class="fas fa-rocket"></i>
+                        <span lang="en">Start My Refund</span>
+                        <span lang="es">Iniciar Mi Reembolso</span>
+                    </a>
+                    <!-- Hero Book Now Button (Updated to Yellow) -->
+                    <a href="https://form.jotform.com/253015681932860" target="_blank" class="bg-yellow-400 text-blue-900 px-10 py-5 rounded-2xl font-black text-xl hover:bg-yellow-500 hover:shadow-2xl transition flex items-center justify-center gap-3">
+                        <i class="far fa-calendar-check"></i>
+                        <span lang="en">Book Now</span>
+                        <span lang="es">Reservar</span>
+                    </a>
+                </div>
             </div>
         </div>
     </header>
 
-    <!-- Trust Badges Bar -->
-    <div class="bg-white border-b border-gray-100 py-8">
-        <div class="max-w-7xl mx-auto px-4 flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all">
-            <div class="flex items-center gap-2">
-                <i class="fas fa-university text-3xl"></i>
-                <span class="font-black text-xs uppercase tracking-tighter">IRS Authorized</span>
-            </div>
-            <div class="flex items-center gap-2">
-                <i class="fas fa-lock text-3xl"></i>
-                <span class="font-black text-xs uppercase tracking-tighter">Secure Data</span>
-            </div>
-            <div class="flex items-center gap-2">
-                <i class="fas fa-map-marked-alt text-3xl"></i>
-                <span class="font-black text-xs uppercase tracking-tighter">50 States</span>
-            </div>
-            <div class="flex items-center gap-2">
-                <i class="fas fa-user-shield text-3xl"></i>
-                <span class="font-black text-xs uppercase tracking-tighter">Audit Protection</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- Why Choose Us -->
-    <section id="services" class="py-24 bg-white">
+    <!-- Professional Care Section (Family focus) -->
+    <section class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-black text-blue-900 uppercase" data-i18n="services_h">Comprehensive Tax Solutions</h2>
-                <div class="gradient-border"></div>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="feature-card bg-slate-50 p-8 rounded-3xl text-center border border-gray-100 shadow-sm relative overflow-hidden group">
-                    <div class="w-20 h-20 bg-blue-100 text-blue-900 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl relative z-10">
-                        <i class="fas fa-laptop-house"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-blue-900 uppercase relative z-10" data-i18n="feat1_h">100% Virtual</h3>
-                    <p class="text-gray-600 text-sm relative z-10" data-i18n="feat1_p">Secure, remote filing from any device, anywhere in the USA.</p>
-                </div>
-                <div class="feature-card bg-slate-50 p-8 rounded-3xl text-center border border-gray-100 shadow-sm relative overflow-hidden group">
-                    <div class="w-20 h-20 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl relative z-10">
-                        <i class="fas fa-user-check"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-blue-900 uppercase relative z-10" data-i18n="feat2_h">ITIN Experts</h3>
-                    <p class="text-gray-600 text-sm relative z-10" data-i18n="feat2_p">Specialized assistance for individuals filing with an ITIN.</p>
-                </div>
-                <div class="feature-card bg-slate-50 p-8 rounded-3xl text-center border border-gray-100 shadow-sm relative overflow-hidden group">
-                    <div class="w-20 h-20 bg-yellow-100 text-yellow-600 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl relative z-10">
-                        <i class="fas fa-hand-holding-usd"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-blue-900 uppercase relative z-10" data-i18n="feat3_h">Max Refund</h3>
-                    <p class="text-gray-600 text-sm relative z-10" data-i18n="feat3_p">We identify every credit and deduction to maximize your return.</p>
-                </div>
-                <div class="feature-card bg-slate-50 p-8 rounded-3xl text-center border border-gray-100 shadow-sm relative overflow-hidden group">
-                    <div class="w-20 h-20 bg-slate-200 text-slate-700 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl relative z-10">
-                        <i class="fas fa-language"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-blue-900 uppercase relative z-10" data-i18n="feat4_h">Bilingual Support</h3>
-                    <p class="text-gray-600 text-sm relative z-10" data-i18n="feat4_p">Full service available in both English and Spanish.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Professional Context Section -->
-    <section class="py-24 bg-pattern overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-            <div class="relative">
-                <div class="grid grid-cols-2 gap-4">
-                    <img src="https://images.unsplash.com/photo-1554224154-26032ffc0d07?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Work" class="rounded-3xl shadow-lg mt-8">
-                    <img src="https://images.unsplash.com/photo-1573164060897-425941c30362?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80" alt="Consultation" class="rounded-3xl shadow-lg">
-                </div>
-                <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-3xl shadow-xl flex items-center gap-4 border border-blue-50">
-                    <div class="w-12 h-12 bg-emerald-500 rounded-full flex items-center justify-center text-white">
-                        <i class="fas fa-check"></i>
-                    </div>
-                    <div>
-                        <p class="font-black text-blue-900 leading-none">IRS Verified</p>
-                        <p class="text-xs text-gray-400">Authorized Provider</p>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <h2 class="text-3xl md:text-4xl font-black text-blue-900 mb-6 uppercase" data-i18n="care_title">Trusted National Service</h2>
-                <p class="text-lg text-gray-600 mb-8 leading-relaxed" data-i18n="care_desc">
-                    JMG Tax Service provides high-level tax strategy for families and small businesses across the United States. Our mission is to combine professional financial expertise with personalized care that speaks your language.
-                </p>
-                <div class="space-y-4">
-                    <div class="flex items-center gap-4 bg-white p-4 rounded-2xl shadow-sm border border-gray-100">
-                        <i class="fas fa-shield-alt text-emerald-500 text-xl"></i>
-                        <span class="font-bold text-blue-900" data-i18n="care_check1">Bank-Level Data Security</span>
-                    </div>
-                    <div class="flex items-center gap-4 bg-white p-4 rounded-2xl shadow-sm border border-gray-100">
-                        <i class="fas fa-chart-line text-emerald-500 text-xl"></i>
-                        <span class="font-bold text-blue-900" data-i18n="care_check2">Authorized IRS e-file Provider</span>
-                    </div>
-                    <div class="flex items-center gap-4 bg-white p-4 rounded-2xl shadow-sm border border-gray-100">
-                        <i class="fas fa-users text-emerald-500 text-xl"></i>
-                        <span class="font-bold text-blue-900" data-i18n="care_check3">Dedicated Hispanic Community Support</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SERVICE FEES SECTION -->
-    <section id="fees" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div class="order-2 lg:order-1">
-                <div class="text-left mb-10">
-                    <h2 class="text-4xl md:text-5xl font-black text-blue-900 uppercase italic tracking-tighter" data-i18n="fee_title">Service Fees</h2>
-                    <div class="h-1 w-20 bg-emerald-500 mt-4 rounded-full"></div>
-                    <p class="text-gray-500 font-bold mt-4" data-i18n="fee_subtitle">Clear, upfront pricing for your peace of mind</p>
-                </div>
-
-                <div class="bg-slate-50 rounded-3xl border border-gray-200 shadow-xl p-8 relative overflow-hidden">
-                    <div class="space-y-2 relative z-10">
-                        <div class="fee-item flex justify-between items-center flex-wrap gap-4">
-                            <span class="text-lg font-bold text-gray-700" data-i18n="fee_1_name">W-2 Only</span>
-                            <span class="text-xl font-black text-emerald-600" data-i18n="fee_1_price">starting at $259.99</span>
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="lg:w-1/2">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Hispanic Professional" class="rounded-[2.5rem] shadow-2xl">
+                        <div class="absolute -bottom-8 -left-8 bg-blue-900 text-white p-8 rounded-3xl shadow-xl hidden md:block border-4 border-white">
+                            <p class="text-3xl font-black text-emerald-400">ITIN</p>
+                            <p class="text-sm font-bold uppercase tracking-widest opacity-80">Experts / Expertos</p>
                         </div>
-                        <div class="fee-item flex justify-between items-center flex-wrap gap-4">
-                            <span class="text-lg font-bold text-gray-700" data-i18n="fee_2_name">W-2 w/ Dependents</span>
-                            <span class="text-xl font-black text-emerald-600" data-i18n="fee_2_price">starting at $459.99</span>
-                        </div>
-                        <div class="fee-item flex justify-between items-center flex-wrap gap-4">
-                            <span class="text-lg font-bold text-gray-700" data-i18n="fee_3_name">Self-Employed / Small Business</span>
-                            <span class="text-xl font-black text-emerald-600" data-i18n="fee_3_price">$659.99–$1,259.99</span>
-                        </div>
-                        <div class="fee-item flex justify-between items-center flex-wrap gap-4">
-                            <span class="text-lg font-bold text-gray-700" data-i18n="fee_4_name">Advanced Business Returns</span>
-                            <span class="text-xl font-black text-emerald-600" data-i18n="fee_4_price">starting at $1,500+</span>
-                        </div>
-                    </div>
-                    <div class="mt-6 p-4 bg-blue-50 rounded-xl border border-blue-100 text-xs text-blue-900 font-bold italic" data-i18n="fee_processing_note">
-                        <i class="fas fa-info-circle mr-2"></i> A processing/administrative fee of $150–$165 applies for secure document handling.
-                    </div>
-                </div>
-            </div>
-            <div class="order-1 lg:order-2">
-                <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Tax Documents" class="rounded-[3rem] shadow-2xl grayscale hover:grayscale-0 transition-all duration-700">
-            </div>
-        </div>
-    </section>
-
-    <!-- Promotion Section -->
-    <section class="py-24 bg-blue-900 text-white relative">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="bg-white text-blue-900 p-8 md:p-12 rounded-[3rem] shadow-2xl flex flex-col lg:flex-row items-center gap-12 relative overflow-hidden">
-                <!-- Graphical Accent -->
-                <div class="absolute top-0 right-0 w-32 h-32 bg-yellow-400 rounded-bl-[100%] opacity-20"></div>
-                
-                <div class="lg:w-1/2 relative">
-                    <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Finance Growth" class="rounded-3xl shadow-lg relative z-10">
-                    <div class="absolute -bottom-4 -right-4 bg-emerald-500 text-white px-8 py-4 rounded-2xl font-black shadow-lg z-20 animate-bounce">
-                        SECURE NOW
                     </div>
                 </div>
                 <div class="lg:w-1/2">
-                    <h3 class="text-4xl font-black uppercase italic mb-6 leading-tight" data-i18n="promo_h">Fast Access To Your Funds</h3>
-                    <div class="space-y-8">
+                    <h2 class="text-4xl md:text-5xl font-black text-blue-900 mb-8 uppercase leading-tight italic">
+                        <span lang="en">Professional Care for Hispanic Families</span>
+                        <span lang="es">Cuidado Profesional para Familias Hispanas</span>
+                    </h2>
+                    <p class="text-lg text-gray-600 mb-10 leading-relaxed">
+                        <span lang="en">At JMG Tax Service, we specialize in helping our community navigate the complexities of the US tax system. Whether you are filing with a Social Security Number or an ITIN, we are here to ensure you get every dollar you deserve through Child Tax Credits and education write-offs.</span>
+                        <span lang="es">En JMG Tax Service, nos especializamos en ayudar a nuestra comunidad a navegar las complejidades del sistema tributario de los EE. UU. Ya sea que declare con un Número de Seguro Social o un ITIN, estamos aquí para asegurar que reciba cada dólar que merece a través de Créditos por Hijos y deducciones de educación.</span>
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="flex items-start gap-4">
-                            <div class="text-emerald-500 text-2xl mt-1"><i class="fas fa-bolt"></i></div>
+                            <div class="bg-blue-100 text-blue-600 p-3 rounded-xl"><i class="fas fa-map-marker-alt"></i></div>
                             <div>
-                                <h4 class="font-black text-xl" data-i18n="promo2_h">CASH ADVANCES</h4>
-                                <p class="text-3xl font-black text-blue-900" data-i18n="promo2_p1">UP TO $7,000</p>
-                                <p class="text-xs uppercase font-bold text-gray-400" data-i18n="promo2_p2">* For qualified applicants. Ask for details.</p>
+                                <h4 class="font-black text-blue-900 uppercase text-sm">Available in 50 States</h4>
+                                <p class="text-gray-500 text-sm">Virtual help across the USA.</p>
                             </div>
                         </div>
                         <div class="flex items-start gap-4">
-                            <div class="text-emerald-500 text-2xl mt-1"><i class="fas fa-gift"></i></div>
+                            <div class="bg-emerald-100 text-emerald-600 p-3 rounded-xl"><i class="fas fa-comments"></i></div>
                             <div>
-                                <h4 class="font-black text-xl" data-i18n="promo1_h">REFERRAL REWARDS</h4>
-                                <p class="text-gray-600" data-i18n="promo1_p">Refer a friend and get a <span class="text-emerald-600 font-black">$100 Cash Bonus Credit</span> on your prep fee!</p>
+                                <h4 class="font-black text-blue-900 uppercase text-sm">Bilingual Service</h4>
+                                <p class="text-gray-500 text-sm">Clear Spanish or English.</p>
                             </div>
                         </div>
                     </div>
-                    <a href="https://form.jotform.com/253238461972059" target="_blank" class="w-full mt-10 bg-emerald-500 text-white py-5 rounded-2xl font-black text-xl hover:bg-emerald-600 transition shadow-lg flex items-center justify-center gap-2 uppercase">
-                        <span data-i18n="promo_btn">Book Your Consultation</span>
-                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Small Business & Self-Employed Section -->
+    <section class="py-24 bg-slate-900 text-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col lg:flex-row-reverse items-center gap-16">
+                <div class="lg:w-1/2 relative">
+                    <img src="https://images.unsplash.com/photo-1556742049-13da7366b939?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Self-Employed Small Business" class="rounded-[2.5rem] shadow-2xl grayscale hover:grayscale-0 transition duration-700">
+                    <div class="absolute -top-6 -right-6 bg-emerald-500 text-white p-6 rounded-2xl shadow-xl font-black">
+                        <span lang="en">1099 & Schedule C</span>
+                        <span lang="es">1099 y Schedule C</span>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <h2 class="text-4xl md:text-5xl font-black mb-8 uppercase leading-tight italic">
+                        <span lang="en">Empowering Small Business & Self-Employed</span>
+                        <span lang="es">Impulsando a Pequeños Negocios y Emprendedores</span>
+                    </h2>
+                    <p class="text-lg text-blue-100 mb-10 leading-relaxed">
+                        <span lang="en">Running a business is hard—taxes shouldn't be. We specialize in Schedule C preparation, 1099 income, and identifying the business write-offs you need to keep more of your hard-earned profits.</span>
+                        <span lang="es">Dirigir un negocio es difícil; los impuestos no deberían serlo. Nos especializamos en la preparación del Schedule C, ingresos 1099 e identificación de las deducciones comerciales que necesita para conservar más de sus ganancias.</span>
+                    </p>
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4 bg-white/10 p-4 rounded-2xl border border-white/10">
+                            <i class="fas fa-check-circle text-emerald-400 text-xl"></i>
+                            <span class="font-bold">
+                                <span lang="en">Expense & Mileage Tracking Support</span>
+                                <span lang="es">Soporte para Rastreo de Gastos y Millaje</span>
+                            </span>
+                        </div>
+                        <div class="flex items-center gap-4 bg-white/10 p-4 rounded-2xl border border-white/10">
+                            <i class="fas fa-check-circle text-emerald-400 text-xl"></i>
+                            <span class="font-bold">
+                                <span lang="en">Home Office & Equipment Deductions</span>
+                                <span lang="es">Deducciones por Oficina en Casa y Equipo</span>
+                            </span>
+                        </div>
+                        <div class="flex items-center gap-4 bg-white/10 p-4 rounded-2xl border border-white/10">
+                            <i class="fas fa-check-circle text-emerald-400 text-xl"></i>
+                            <span class="font-bold">
+                                <span lang="en">Quarterly Estimated Tax Guidance</span>
+                                <span lang="es">Guía para Impuestos Estimados Trimestrales</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Offers Bar -->
+    <section class="bg-blue-900 py-16">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Promo 1 -->
+                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-3xl border border-white/10 text-center promo-card">
+                    <div class="text-yellow-400 text-4xl mb-4"><i class="fas fa-money-check-alt"></i></div>
+                    <h3 class="text-white font-black text-xl mb-2 uppercase">Cash Advance</h3>
+                    <p class="text-emerald-400 font-black text-3xl mb-4">Up to $7,000*</p>
+                    <p class="text-blue-100 text-xs uppercase tracking-widest font-bold">* For those who qualify</p>
+                </div>
+                <!-- Promo 2 -->
+                <div class="bg-emerald-500 p-8 rounded-3xl text-center promo-card shadow-lg">
+                    <div class="text-white text-4xl mb-4"><i class="fas fa-gift"></i></div>
+                    <h3 class="text-white font-black text-xl mb-2 uppercase">Referral Bonus</h3>
+                    <p class="text-white font-black text-3xl mb-4">$100 Cash Credit</p>
+                    <p class="text-white/80 text-xs uppercase tracking-widest font-bold">On your preparation fee</p>
+                </div>
+                <!-- Promo 3 -->
+                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-3xl border border-white/10 text-center promo-card">
+                    <div class="text-blue-300 text-4xl mb-4"><i class="fas fa-shield-alt"></i></div>
+                    <h3 class="text-white font-black text-xl mb-2 uppercase">100% Virtual</h3>
+                    <p class="text-white font-black text-3xl mb-4">Secure & Fast</p>
+                    <p class="text-blue-100 text-xs uppercase tracking-widest font-bold">Bank-Level Security</p>
                 </div>
             </div>
         </div>
@@ -273,176 +259,87 @@
     <!-- Testimonials -->
     <section class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-3xl font-black text-center mb-16 text-blue-900 uppercase italic" data-i18n="test_h">Trusted by Families Nationwide</h2>
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-black text-blue-900 uppercase">Trusted by Families & Business Owners</h2>
+            </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-slate-50 p-8 rounded-3xl border border-gray-100 shadow-sm">
-                    <div class="flex text-yellow-400 mb-4 text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p class="text-gray-600 italic mb-6" data-i18n="test1_p">"Excellent service! They explained everything in Spanish and helped me with my ITIN. I got a much bigger refund than last year."</p>
-                    <p class="font-black text-blue-900 text-sm">— Maria G., California</p>
+                <div class="testimonial-card">
+                    <div class="text-emerald-500 mb-4"><i class="fas fa-quote-left text-3xl"></i></div>
+                    <p class="text-gray-700 italic mb-6">"Excellent service! They explained everything in Spanish and helped me with my ITIN. I got a much bigger refund than last year."</p>
+                    <p class="font-black text-blue-900">— Maria G., California</p>
                 </div>
-                <div class="bg-slate-50 p-8 rounded-3xl border border-gray-100 shadow-sm">
-                    <div class="flex text-yellow-400 mb-4 text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p class="text-gray-600 italic mb-6" data-i18n="test2_p">"Very professional and fast. I love that I could do everything from my phone since I work long hours."</p>
-                    <p class="font-black text-blue-900 text-sm">— Juan R., Texas</p>
+                <div class="testimonial-card">
+                    <div class="text-emerald-500 mb-4"><i class="fas fa-quote-left text-3xl"></i></div>
+                    <p class="text-gray-700 italic mb-6">"As a self-employed contractor, taxes used to be a nightmare. JMG helped me find every deduction for my truck and equipment."</p>
+                    <p class="font-black text-blue-900">— Juan R., Texas</p>
                 </div>
-                <div class="bg-slate-50 p-8 rounded-3xl border border-gray-100 shadow-sm">
-                    <div class="flex text-yellow-400 mb-4 text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p class="text-gray-600 italic mb-6" data-i18n="test3_p">"Helping my family with our taxes for 3 years now. They really care about the community."</p>
-                    <p class="font-black text-blue-900 text-sm">— Elena V., Florida</p>
+                <div class="testimonial-card">
+                    <div class="text-emerald-500 mb-4"><i class="fas fa-quote-left text-3xl"></i></div>
+                    <p class="text-gray-700 italic mb-6">"Helping my family with our taxes for 3 years now. They really care about the Latino community."</p>
+                    <p class="font-black text-blue-900">— Elena V., Florida</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-slate-950 text-white pt-20 pb-10">
-        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
-            <div>
-                <svg class="logo-svg mb-6" viewBox="0 0 480 150" xmlns="http://www.w3.org/2000/svg">
+    <footer class="bg-slate-900 text-white pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-3 gap-16 border-b border-white/10 pb-16">
+            <div class="space-y-6">
+                <svg class="h-16 w-auto" viewBox="0 0 480 150" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="75" cy="75" r="65" fill="#1e3a8a" />
                     <path d="M75 30 L110 75 L90 75 L90 120 L60 120 L60 75 L40 75 Z" fill="white" />
                     <text x="75" y="88" font-family="Arial" font-size="28" font-weight="900" fill="#10b981" text-anchor="middle">$</text>
                     <text x="155" y="78" font-family="Montserrat, sans-serif" font-size="62" font-weight="900" fill="white">JMG <tspan fill="#10b981">TAX</tspan></text>
                     <text x="155" y="118" font-family="Montserrat, sans-serif" font-size="30" font-weight="600" fill="#94a3b8" letter-spacing="4">SERVICE</text>
                 </svg>
-                <p class="text-gray-400 font-medium" data-i18n="foot_desc">Professional tax preparation for families and businesses. Serving all 50 states virtually with bank-level security.</p>
-                
-                <div class="mt-8 pt-6 border-t border-slate-900/50">
-                    <p class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-2" data-i18n="partner_label">Strategic Partnership</p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-blue-900/50 rounded-lg flex items-center justify-center border border-blue-800">
-                            <i class="fas fa-handshake text-emerald-400"></i>
-                        </div>
-                        <p class="text-sm font-black text-gray-300">LWG Tax Services</p>
-                    </div>
-                </div>
+                <p class="text-gray-400 font-medium">Professional tax preparation for the Hispanic community. Serving all 50 states virtually with bank-level security.</p>
             </div>
             <div>
-                <h4 class="text-xl font-black mb-6 uppercase tracking-widest text-emerald-400" data-i18n="foot_h1">Contact Info</h4>
+                <h4 class="text-emerald-400 font-black uppercase tracking-widest mb-8">Contact Info</h4>
                 <div class="space-y-4 font-bold">
-                    <a href="tel:7608198216" class="flex items-center gap-3 hover:text-emerald-400 transition-colors">
-                        <i class="fas fa-phone text-emerald-500"></i> (760) 819-8216
-                    </a>
-                    <p class="flex items-center gap-3">
-                        <i class="fas fa-envelope text-emerald-500"></i> info@jmgtaxservice.com
-                    </p>
-                    <p class="flex items-center gap-3">
-                        <i class="fas fa-globe text-emerald-500"></i> Serving all 50 States
-                    </p>
+                    <p class="flex items-center gap-3"><i class="fas fa-phone text-emerald-500"></i> (760) 819-8216</p>
+                    <p class="flex items-center gap-3"><i class="fas fa-envelope text-emerald-500"></i> info@jmgtaxservice.com</p>
+                    <p class="flex items-center gap-3"><i class="fas fa-globe text-emerald-500"></i> Serving 50 States</p>
                 </div>
             </div>
             <div>
-                <h4 class="text-xl font-black mb-6 uppercase tracking-widest text-emerald-400" data-i18n="foot_h2">Office Hours</h4>
-                <div class="text-gray-400 font-bold space-y-2">
-                    <p>Mon - Fri: 9:00 AM - 6:00 PM</p>
-                    <p>Sat: 10:00 AM - 2:00 PM</p>
-                    <p class="text-white mt-4 italic">Bilingual Support • ¡Hablamos Español!</p>
+                <h4 class="text-emerald-400 font-black uppercase tracking-widest mb-8">Office Hours</h4>
+                <div class="space-y-2 text-gray-400 font-bold">
+                    <div class="flex justify-between"><span>Mon - Fri:</span> <span>9:00 AM - 6:00 PM</span></div>
+                    <div class="flex justify-between"><span>Sat:</span> <span>10:00 AM - 2:00 PM</span></div>
+                    <div class="mt-6 p-3 bg-white/5 rounded-xl text-center text-white italic">¡Hablamos Español!</div>
                 </div>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto px-4 pt-10 border-t border-slate-900 text-center text-gray-600 text-xs font-bold">
-            &copy; 2026 JMG Tax Service. All Rights Reserved. Precision • Integrity • Results.
+        <div class="max-w-7xl mx-auto px-4 text-center pt-10 text-gray-500 text-xs font-black uppercase tracking-widest">
+            © 2026 JMG Tax Service. All Rights Reserved. Precision • Integrity • Results.
         </div>
     </footer>
 
     <script>
-        const translations = {
-            en: {
-                nav_services: "Our Services",
-                nav_fees: "Service Fees",
-                nav_book: "Book Now",
-                hero_tagline: "Licensed Professional Tax Preparation in all 50 States",
-                hero_title: "Get Your Maximum Refund. Guaranteed.",
-                hero_subtitle: "Professional, secure, and 100% virtual tax solutions. We specialize in helping the Latino community with bilingual experts.",
-                btn_book: "Start My Refund",
-                services_h: "Comprehensive Tax Solutions",
-                feat1_h: "100% Virtual", feat1_p: "Secure, remote filing from any device, anywhere in the USA.",
-                feat2_h: "ITIN Experts", feat2_p: "Specialized assistance for individuals filing with an ITIN.",
-                feat3_h: "Max Refund", feat3_p: "We identify every credit and deduction to maximize your return.",
-                feat4_h: "Bilingual Support", feat4_p: "Full service available in both English and Spanish.",
-                care_title: "Trusted National Service",
-                care_desc: "JMG Tax Service provides high-level tax strategy for families and small businesses across the United States. Our mission is to combine professional financial expertise with personalized care that speaks your language.",
-                care_check1: "Bank-Level Data Security",
-                care_check2: "Authorized IRS e-file Provider",
-                care_check3: "Dedicated Hispanic Community Support",
-                fee_title: "Service Fees",
-                fee_subtitle: "Clear, upfront pricing for your peace of mind",
-                fee_1_name: "W-2 Only", fee_1_price: "starting at $259.99",
-                fee_2_name: "W-2 w/ Dependents", fee_2_price: "starting at $459.99",
-                fee_3_name: "Self-Employed / Small Business", fee_3_price: "$659.99–$1,259.99",
-                fee_4_name: "Advanced Business Returns", fee_4_price: "starting at $1,500+",
-                fee_processing_note: "A processing fee of $150–$165 applies for secure document handling.",
-                promo_h: "Fast Access To Your Funds",
-                promo1_h: "REFERRAL REWARDS",
-                promo1_p: "Refer a friend and get a $100 Cash Bonus Credit on your prep fee!",
-                promo2_h: "CASH ADVANCES",
-                promo2_p1: "UP TO $7,000",
-                promo2_p2: "* For qualified applicants. Ask for details.",
-                promo_btn: "Book Your Consultation",
-                test_h: "Trusted by Families Nationwide",
-                test1_p: "\"Excellent service! They explained everything in Spanish and helped me with my ITIN. I got a much bigger refund than last year.\"",
-                test2_p: "\"Very professional and fast. I love that I could do everything from my phone since I work long hours.\"",
-                test3_p: "\"Helping my family with our taxes for 3 years now. They really care about the community.\"",
-                foot_desc: "Professional tax preparation for families and businesses. Serving all 50 states virtually with bank-level security.",
-                foot_h1: "Contact Info",
-                foot_h2: "Office Hours",
-                partner_label: "Strategic Partnership"
-            },
-            es: {
-                nav_services: "Servicios",
-                nav_fees: "Tarifas",
-                nav_book: "Reservar",
-                hero_tagline: "Sirviendo a Familias Hispanas en los 50 Estados",
-                hero_title: "Ayudando a Nuestra Comunidad Latina con sus Impuestos.",
-                hero_subtitle: "Hablamos Español. Obtenga su máximo reembolso con un servicio profesional que entiende las necesidades de su familia.",
-                btn_book: "Iniciar Mi Reembolso",
-                services_h: "Soluciones de Impuestos",
-                feat1_h: "100% VIRTUAL", feat1_p: "Presentación segura y remota desde cualquier dispositivo.",
-                feat2_h: "EXPERTOS EN ITIN", feat2_p: "Asistencia especializada para quienes presentan con ITIN.",
-                feat3_h: "MÁXIMO REEMBOLSO", feat3_p: "Identificamos cada crédito para maximizar su retorno.",
-                feat4_h: "APOYO BILINGÜE", feat4_p: "Servicio completo disponible en inglés y español.",
-                care_title: "Cuidado Profesional para Familias Hispanas",
-                care_desc: "En JMG Tax Service, nos especializamos en ayudar a nuestra comunidad a navegar las complejidades del sistema tributario de EE. UU. Ya sea que presente con SSN o ITIN.",
-                care_check1: "Seguridad de Datos de Nivel Bancario",
-                care_check2: "Proveedor Autorizado de e-file del IRS",
-                care_check3: "Apoyo Dedicado a la Comunidad Hispana",
-                fee_title: "Tarifas de Servicio",
-                fee_subtitle: "Precios claros y directos para su tranquilidad",
-                fee_1_name: "W-2 Solamente", fee_1_price: "desde $259.99",
-                fee_2_name: "W-2 con Dependientes", fee_2_price: "desde $459.99",
-                fee_3_name: "Independiente / Pequeño Negocio", fee_3_price: "$659.99–$1,259.99",
-                fee_4_name: "Declaraciones Avanzadas", fee_4_price: "desde $1,500+",
-                fee_processing_note: "Se aplica una tarifa de $150–$165 por el manejo seguro de documentos.",
-                promo_h: "Acceso Rápido a sus Fondos",
-                promo1_h: "BONO POR RECOMENDACIÓN",
-                promo1_p: "¡Recomiende a un amigo y reciba un crédito de $100 en su tarifa!",
-                promo2_h: "ADELANTO DE EFECTIVO",
-                promo2_p1: "HASTA $7,000",
-                promo2_p2: "* Para quienes califican. Pida detalles.",
-                promo_btn: "Reserve su Consulta",
-                test_h: "Confianza de Familias en todo el País",
-                test1_p: "\"¡Excelente servicio! Me explicaron todo en español y me ayudaron con mi ITIN. Recibí un reembolso mucho mayor.\"",
-                test2_p: "\"Muy profesional y rápido. Me encanta que pude hacer todo desde mi teléfono.\"",
-                test3_p: "\"Ayudando a mi familia por 3 años. Realmente se preocupan por la comunidad.\"",
-                foot_desc: "Preparación profesional de impuestos para la comunidad hispana. Sirviendo virtualmente con seguridad bancaria.",
-                foot_h1: "Contacto",
-                foot_h2: "Horario",
-                partner_label: "Asociación Estratégica"
+        const langToggle = document.getElementById('langToggle');
+        const langToggleMobile = document.getElementById('langToggleMobile');
+        const langLabel = document.getElementById('langLabel');
+        const langLabelMobile = document.getElementById('langLabelMobile');
+        const body = document.body;
+        let currentLang = 'en';
+
+        const toggle = () => {
+            currentLang = currentLang === 'en' ? 'es' : 'en';
+            if (currentLang === 'es') {
+                body.classList.add('lang-es');
+                langLabel.innerText = 'ENGLISH';
+                langLabelMobile.innerText = 'EN';
+            } else {
+                body.classList.remove('lang-es');
+                langLabel.innerText = 'ESPAÑOL';
+                langLabelMobile.innerText = 'ES';
             }
         };
 
-        let currentLang = 'en';
-        function updateLanguage(lang) {
-            currentLang = lang;
-            document.getElementById('langLabel').innerText = lang === 'en' ? 'ESPAÑOL' : 'ENGLISH';
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (translations[lang][key]) {
-                    el.innerHTML = translations[lang][key];
-                }
-            });
-        }
-        document.getElementById('langToggle').addEventListener('click', () => updateLanguage(currentLang === 'en' ? 'es' : 'en'));
+        langToggle.addEventListener('click', toggle);
+        langToggleMobile.addEventListener('click', toggle);
     </script>
 </body>
 </html>
