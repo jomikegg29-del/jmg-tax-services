@@ -28,6 +28,7 @@
         .lang-es [lang="en"] { display: none; }
         .lang-es [lang="es"] { display: block; }
         .lang-es .flex[lang="es"] { display: flex; }
+        .lang-es .grid[lang="es"] { display: grid; }
 
         .service-card, .price-card {
             transition: all 0.3s ease;
@@ -67,26 +68,45 @@
                     </a>
                 </div>
                 
-                <div class="hidden lg:flex items-center space-x-8">
-                    <a href="#services" class="text-blue-900 font-bold hover:text-emerald-500 transition">Services</a>
-                    <a href="#fees" class="text-blue-900 font-bold hover:text-emerald-500 transition">Service Fees</a>
-                    <a href="#process" class="text-blue-900 font-bold hover:text-emerald-500 transition">How It Works</a>
-                    <a href="https://form.jotform.com/253015681932860" target="_blank" class="flex items-center gap-2 bg-yellow-400 text-blue-900 px-4 py-2 rounded-xl font-black hover:bg-yellow-500 transition shadow-sm">
+                <!-- Desktop Navigation Links -->
+                <div class="hidden lg:flex items-center space-x-4">
+                    <a href="#services" class="text-blue-900 font-bold hover:text-emerald-500 transition px-2 py-2 rounded-md text-sm uppercase tracking-tight">
+                        <span lang="en">Services</span>
+                        <span lang="es">Servicios</span>
+                    </a>
+                    <a href="#fees" class="text-blue-900 font-bold hover:text-emerald-500 transition px-2 py-2 rounded-md text-sm uppercase tracking-tight">
+                        <span lang="en">Service Fees</span>
+                        <span lang="es">Tarifas</span>
+                    </a>
+                    <a href="#process" class="text-blue-900 font-bold hover:text-emerald-500 transition px-2 py-2 rounded-md text-sm uppercase tracking-tight">
+                        <span lang="en">How It Works</span>
+                        <span lang="es">Cómo Funciona</span>
+                    </a>
+                    <a href="#contact" class="text-blue-900 font-bold hover:text-emerald-500 transition px-2 py-2 rounded-md text-sm uppercase tracking-tight">
+                        <span lang="en">Contact Us</span>
+                        <span lang="es">Contacto</span>
+                    </a>
+                    
+                    <div class="h-6 w-px bg-slate-200 mx-2"></div>
+                    
+                    <a href="https://form.jotform.com/253015681932860" target="_blank" class="flex items-center gap-2 bg-yellow-400 text-blue-900 px-4 py-2.5 rounded-xl font-black hover:bg-yellow-500 transition shadow-sm text-sm">
                         <i class="far fa-calendar-check"></i>
                         <span lang="en">Book Now</span>
                         <span lang="es">Cita Aquí</span>
                     </a>
-                    <button id="langToggle" class="lang-pulse bg-blue-900 text-white px-6 py-2.5 rounded-full font-black text-sm uppercase tracking-widest hover:bg-emerald-600 transition shadow-lg flex items-center gap-2">
+                    <button id="langToggle" class="lang-pulse bg-blue-900 text-white px-4 py-2.5 rounded-full font-black text-xs uppercase tracking-widest hover:bg-emerald-600 transition shadow-lg flex items-center gap-2">
                         <i class="fas fa-globe-americas"></i>
                         <span id="langLabel">ESPAÑOL</span>
                     </button>
                 </div>
 
-                <div class="lg:hidden flex items-center gap-3">
-                    <a href="https://form.jotform.com/253015681932860" target="_blank" class="bg-yellow-400 text-blue-900 p-2 rounded-lg shadow-md">
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden flex items-center gap-2">
+                    <a href="https://form.jotform.com/253015681932860" target="_blank" class="bg-yellow-400 text-blue-900 p-2.5 rounded-xl shadow-md">
                         <i class="fas fa-calendar-alt"></i>
                     </a>
-                    <button id="langToggleMobile" class="bg-blue-900 text-white font-black text-xs px-3 py-2 rounded-md">
+                    <button id="langToggleMobile" class="bg-blue-900 text-white font-black text-xs px-4 py-2.5 rounded-xl flex items-center gap-2">
+                        <i class="fas fa-globe"></i>
                         <span id="langLabelMobile">ES</span>
                     </button>
                 </div>
@@ -100,22 +120,22 @@
             <div class="max-w-3xl">
                 <span class="inline-block bg-emerald-500 text-white px-4 py-1 rounded-md text-xs font-black uppercase tracking-widest mb-4">
                     <span lang="en">Accuracy • Integrity • Personal Service</span>
-                    <span lang="es">Precisión • Integridad • Servicio Personal</span>
+                    <span lang="es">PRECISIÓN • INTEGRIDAD • SERVICIO PERSONAL</span>
                 </span>
-                <h1 class="text-5xl md:text-7xl font-black mb-6 leading-[1.1] uppercase">
+                <h1 class="text-5xl md:text-7xl font-black mb-6 leading-[1.1] uppercase italic">
                     <span lang="en">Strategic Tax <br><span class="text-yellow-400">Solutions.</span></span>
-                    <span lang="es">Ayudando a Nuestra <br><span class="text-yellow-400">Comunidad.</span></span>
+                    <span lang="es">AYUDANDO A NUESTRA <br><span class="text-yellow-400">COMUNIDAD.</span></span>
                 </h1>
                 <p class="text-xl md:text-2xl text-blue-50 mb-10 font-medium">
                     <span lang="en">Expert guidance for individuals and small businesses across all 50 states. We specialize in maximizing your refund while ensuring full compliance.</span>
                     <span lang="es">Hablamos Español. Obtenga su reembolso máximo con un servicio profesional que entiende las necesidades de su familia y su negocio.</span>
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                    <a href="https://form.jotform.com/253147394856064" target="_blank" class="cta-gradient text-white px-10 py-5 rounded-2xl font-black text-xl hover:shadow-2xl hover:-translate-y-1 transition-all">
+                    <a href="https://form.jotform.com/253147394856064" target="_blank" class="cta-gradient text-white px-10 py-5 rounded-2xl font-black text-xl hover:shadow-2xl hover:-translate-y-1 transition-all text-center">
                         <span lang="en">Get Started</span>
                         <span lang="es">Comenzar</span>
                     </a>
-                    <a href="https://form.jotform.com/253015681932860" target="_blank" class="bg-yellow-400 text-blue-900 px-10 py-5 rounded-2xl font-black text-xl hover:bg-yellow-500 hover:shadow-2xl transition">
+                    <a href="https://form.jotform.com/253015681932860" target="_blank" class="bg-yellow-400 text-blue-900 px-10 py-5 rounded-2xl font-black text-xl hover:bg-yellow-500 hover:shadow-2xl transition text-center">
                         <span lang="en">Book Consultation</span>
                         <span lang="es">Reservar Cita</span>
                     </a>
@@ -129,28 +149,43 @@
         <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
                 <p class="text-3xl font-black text-blue-900">50</p>
-                <p class="text-gray-500 text-sm font-bold uppercase tracking-tighter">States Covered</p>
+                <p class="text-gray-500 text-sm font-bold uppercase tracking-tighter">
+                    <span lang="en">States Covered</span>
+                    <span lang="es">ESTADOS CUBIERTOS</span>
+                </p>
             </div>
             <div>
                 <p class="text-3xl font-black text-emerald-500">100%</p>
-                <p class="text-gray-500 text-sm font-bold uppercase tracking-tighter">Virtual & Secure</p>
+                <p class="text-gray-500 text-sm font-bold uppercase tracking-tighter">
+                    <span lang="en">Virtual & Secure</span>
+                    <span lang="es">VIRTUAL Y SEGURO</span>
+                </p>
             </div>
             <div>
                 <p class="text-3xl font-black text-blue-900">MAX</p>
-                <p class="text-gray-500 text-sm font-bold uppercase tracking-tighter">Refund Policy</p>
+                <p class="text-gray-500 text-sm font-bold uppercase tracking-tighter">
+                    <span lang="en">Refund Policy</span>
+                    <span lang="es">POLÍTICA REEMBOLSO</span>
+                </p>
             </div>
             <div>
                 <p class="text-3xl font-black text-emerald-500">24h</p>
-                <p class="text-gray-500 text-sm font-bold uppercase tracking-tighter">Response Time</p>
+                <p class="text-gray-500 text-sm font-bold uppercase tracking-tighter">
+                    <span lang="en">Response Time</span>
+                    <span lang="es">TIEMPO RESPUESTA</span>
+                </p>
             </div>
         </div>
     </section>
 
-    <!-- Services Overview -->
-    <section id="services" class="py-24 bg-slate-50">
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-slate-50 scroll-mt-20">
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-black text-blue-900 uppercase italic">What We Do</h2>
+                <h2 class="text-4xl font-black text-blue-900 uppercase italic">
+                    <span lang="en">What We Do</span>
+                    <span lang="es">LO QUE HACEMOS</span>
+                </h2>
                 <div class="h-1.5 w-24 bg-emerald-500 mx-auto mt-4"></div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -159,12 +194,15 @@
                     <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center text-2xl mb-6">
                         <i class="fas fa-user"></i>
                     </div>
-                    <h3 class="text-2xl font-black text-blue-900 mb-4">Individual Taxes</h3>
+                    <h3 class="text-2xl font-black text-blue-900 mb-4 uppercase">
+                        <span lang="en">Individual Taxes</span>
+                        <span lang="es">IMPUESTOS PERSONALES</span>
+                    </h3>
                     <ul class="text-gray-600 space-y-3 font-medium">
-                        <li><i class="fas fa-check text-emerald-500 mr-2"></i> W-2 Tax Preparation</li>
-                        <li><i class="fas fa-check text-emerald-500 mr-2"></i> ITIN New/Renewal</li>
-                        <li><i class="fas fa-check text-emerald-500 mr-2"></i> Child Tax Credits</li>
-                        <li><i class="fas fa-check text-emerald-500 mr-2"></i> Multi-State Filing</li>
+                        <li><i class="fas fa-check text-emerald-500 mr-2"></i> <span lang="en">W-2 Tax Preparation</span><span lang="es">Preparación de W-2</span></li>
+                        <li><i class="fas fa-check text-emerald-500 mr-2"></i> <span lang="en">ITIN New/Renewal</span><span lang="es">Trámite/Renovación ITIN</span></li>
+                        <li><i class="fas fa-check text-emerald-500 mr-2"></i> <span lang="en">Child Tax Credits</span><span lang="es">Créditos por Hijos</span></li>
+                        <li><i class="fas fa-check text-emerald-500 mr-2"></i> <span lang="en">Multi-State Filing</span><span lang="es">Declaración Multi-Estado</span></li>
                     </ul>
                 </div>
                 <!-- Small Business -->
@@ -172,12 +210,15 @@
                     <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center text-2xl mb-6">
                         <i class="fas fa-briefcase"></i>
                     </div>
-                    <h3 class="text-2xl font-black text-blue-900 mb-4">Small Business</h3>
+                    <h3 class="text-2xl font-black text-blue-900 mb-4 uppercase">
+                        <span lang="en">Small Business</span>
+                        <span lang="es">PEQUEÑOS NEGOCIOS</span>
+                    </h3>
                     <ul class="text-gray-600 space-y-3 font-medium">
-                        <li><i class="fas fa-check text-emerald-500 mr-2"></i> Schedule C (Self-Employed)</li>
-                        <li><i class="fas fa-check text-emerald-500 mr-2"></i> 1099 Income Reporting</li>
-                        <li><i class="fas fa-check text-emerald-500 mr-2"></i> Business Deductions</li>
-                        <li><i class="fas fa-check text-emerald-500 mr-2"></i> LLC & S-Corp Returns</li>
+                        <li><i class="fas fa-check text-emerald-500 mr-2"></i> <span lang="en">Schedule C (Self-Employed)</span><span lang="es">Schedule C (Trabajo Propio)</span></li>
+                        <li><i class="fas fa-check text-emerald-500 mr-2"></i> <span lang="en">1099 Income Reporting</span><span lang="es">Reporte de Ingresos 1099</span></li>
+                        <li><i class="fas fa-check text-emerald-500 mr-2"></i> <span lang="en">Business Deductions</span><span lang="es">Deducciones de Negocio</span></li>
+                        <li><i class="fas fa-check text-emerald-500 mr-2"></i> <span lang="en">LLC & S-Corp Returns</span><span lang="es">Declaraciones LLC y S-Corp</span></li>
                     </ul>
                 </div>
                 <!-- Advisory -->
@@ -185,70 +226,91 @@
                     <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center text-2xl mb-6">
                         <i class="fas fa-chart-line"></i>
                     </div>
-                    <h3 class="text-2xl font-black text-blue-900 mb-4">Advisory Services</h3>
+                    <h3 class="text-2xl font-black text-blue-900 mb-4 uppercase">
+                        <span lang="en">Advisory Services</span>
+                        <span lang="es">SERVICIOS DE ASESORÍA</span>
+                    </h3>
                     <ul class="text-gray-600 space-y-3 font-medium">
-                        <li><i class="fas fa-check text-emerald-500 mr-2"></i> Tax Planning</li>
-                        <li><i class="fas fa-check text-emerald-500 mr-2"></i> Estimated Payments</li>
-                        <li><i class="fas fa-check text-emerald-500 mr-2"></i> IRS Notice Resolution</li>
-                        <li><i class="fas fa-check text-emerald-500 mr-2"></i> Financial Consulting</li>
+                        <li><i class="fas fa-check text-emerald-500 mr-2"></i> <span lang="en">Tax Planning</span><span lang="es">Planificación Fiscal</span></li>
+                        <li><i class="fas fa-check text-emerald-500 mr-2"></i> <span lang="en">Estimated Payments</span><span lang="es">Pagos Estimados</span></li>
+                        <li><i class="fas fa-check text-emerald-500 mr-2"></i> <span lang="en">IRS Notice Resolution</span><span lang="es">Resolución de Avisos IRS</span></li>
+                        <li><i class="fas fa-check text-emerald-500 mr-2"></i> <span lang="en">Financial Consulting</span><span lang="es">Consultoría Financiera</span></li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Pricing / Service Fees Section -->
-    <section id="fees" class="py-24 bg-white border-y">
+    <!-- Service Fees Section -->
+    <section id="fees" class="py-24 bg-white border-y scroll-mt-20">
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-black text-blue-900 uppercase italic">Service Fees</h2>
-                <p class="text-gray-500 font-bold mt-2">Professional tax services with transparent pricing</p>
+                <h2 class="text-4xl font-black text-blue-900 uppercase italic">
+                    <span lang="en">Service Fees</span>
+                    <span lang="es">TARIFAS DE SERVICIO</span>
+                </h2>
+                <p class="text-gray-500 font-bold mt-2 uppercase tracking-tight">
+                    <span lang="en">Professional tax services with transparent pricing</span>
+                    <span lang="es">Servicios profesionales de impuestos con precios transparentes</span>
+                </p>
                 <div class="h-1.5 w-24 bg-emerald-500 mx-auto mt-4"></div>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- W-2 Only -->
                 <div class="price-card bg-slate-50 p-6 rounded-3xl text-center border-t-4 border-t-blue-400">
-                    <h3 class="text-lg font-black text-blue-900 uppercase mb-2">W-2 Only</h3>
+                    <h3 class="text-lg font-black text-blue-900 uppercase mb-2">
+                        <span lang="en">W-2 Only</span>
+                        <span lang="es">Solo W-2</span>
+                    </h3>
                     <div class="text-3xl font-black text-emerald-600 mb-4">$259<span class="text-sm font-bold text-gray-400">.99+</span></div>
                     <ul class="text-gray-600 space-y-2 mb-6 text-xs font-semibold text-left mx-auto max-w-[160px]">
-                        <li><i class="fas fa-circle text-[6px] mr-2 align-middle"></i> Single/Joint W-2</li>
-                        <li><i class="fas fa-circle text-[6px] mr-2 align-middle"></i> Standard Deduction</li>
-                        <li><i class="fas fa-circle text-[6px] mr-2 align-middle"></i> State + Federal</li>
+                        <li><i class="fas fa-circle text-[6px] mr-2 align-middle"></i> <span lang="en">Single/Joint W-2</span><span lang="es">W-2 Indiv./Conjunta</span></li>
+                        <li><i class="fas fa-circle text-[6px] mr-2 align-middle"></i> <span lang="en">Standard Deduction</span><span lang="es">Deducción Estándar</span></li>
+                        <li><i class="fas fa-circle text-[6px] mr-2 align-middle"></i> <span lang="en">State + Federal</span><span lang="es">Estatal + Federal</span></li>
                     </ul>
                 </div>
 
                 <!-- W-2 w/ Dependents -->
                 <div class="price-card bg-slate-50 p-6 rounded-3xl text-center border-t-4 border-t-emerald-500">
-                    <h3 class="text-lg font-black text-blue-900 uppercase mb-2">W-2 + Dependents</h3>
+                    <h3 class="text-lg font-black text-blue-900 uppercase mb-2">
+                        <span lang="en">W-2 + Dependents</span>
+                        <span lang="es">W-2 + Dependientes</span>
+                    </h3>
                     <div class="text-3xl font-black text-emerald-600 mb-4">$459<span class="text-sm font-bold text-gray-400">.99+</span></div>
                     <ul class="text-gray-600 space-y-2 mb-6 text-xs font-semibold text-left mx-auto max-w-[160px]">
-                        <li><i class="fas fa-circle text-[6px] mr-2 align-middle"></i> Family Filings</li>
-                        <li><i class="fas fa-circle text-[6px] mr-2 align-middle"></i> Child Tax Credits</li>
-                        <li><i class="fas fa-circle text-[6px] mr-2 align-middle"></i> EITC Support</li>
+                        <li><i class="fas fa-circle text-[6px] mr-2 align-middle"></i> <span lang="en">Family Filings</span><span lang="es">Declaración Familiar</span></li>
+                        <li><i class="fas fa-circle text-[6px] mr-2 align-middle"></i> <span lang="en">Child Tax Credits</span><span lang="es">Créditos por Hijos</span></li>
+                        <li><i class="fas fa-circle text-[6px] mr-2 align-middle"></i> <span lang="en">EITC Support</span><span lang="es">Soporte EITC</span></li>
                     </ul>
                 </div>
 
                 <!-- Self-Employed -->
                 <div class="price-card bg-blue-900 p-6 rounded-3xl text-center text-white border-t-4 border-t-yellow-400 relative">
-                    <h3 class="text-lg font-black uppercase mb-2">Self-Employed</h3>
+                    <h3 class="text-lg font-black uppercase mb-2">
+                        <span lang="en">Self-Employed</span>
+                        <span lang="es">Independiente</span>
+                    </h3>
                     <div class="text-2xl font-black text-yellow-400 mb-1">$659<span class="text-xs">.99</span></div>
-                    <div class="text-xs text-blue-300 font-bold mb-4">to $1,259.99</div>
+                    <div class="text-xs text-blue-300 font-bold mb-4"><span lang="en">to</span><span lang="es">a</span> $1,259.99</div>
                     <ul class="text-blue-100 space-y-2 mb-6 text-xs font-semibold text-left mx-auto max-w-[160px]">
-                        <li><i class="fas fa-circle text-[6px] mr-2 align-middle"></i> Schedule C Filing</li>
-                        <li><i class="fas fa-circle text-[6px] mr-2 align-middle"></i> 1099 Income</li>
-                        <li><i class="fas fa-circle text-[6px] mr-2 align-middle"></i> Business Expenses</li>
+                        <li><i class="fas fa-circle text-[6px] mr-2 align-middle"></i> <span lang="en">Schedule C Filing</span><span lang="es">Declaración Schedule C</span></li>
+                        <li><i class="fas fa-circle text-[6px] mr-2 align-middle"></i> <span lang="en">1099 Income</span><span lang="es">Ingresos 1099</span></li>
+                        <li><i class="fas fa-circle text-[6px] mr-2 align-middle"></i> <span lang="en">Business Expenses</span><span lang="es">Gastos de Negocio</span></li>
                     </ul>
                 </div>
 
                 <!-- Advanced Business -->
                 <div class="price-card bg-slate-50 p-6 rounded-3xl text-center border-t-4 border-t-slate-800">
-                    <h3 class="text-lg font-black text-blue-900 uppercase mb-2">Advanced Business</h3>
+                    <h3 class="text-lg font-black text-blue-900 uppercase mb-2">
+                        <span lang="en">Advanced Business</span>
+                        <span lang="es">Negocio Avanzado</span>
+                    </h3>
                     <div class="text-3xl font-black text-emerald-600 mb-4">$1,500<span class="text-sm font-bold text-gray-400">+</span></div>
                     <ul class="text-gray-600 space-y-2 mb-6 text-xs font-semibold text-left mx-auto max-w-[160px]">
-                        <li><i class="fas fa-circle text-[6px] mr-2 align-middle"></i> S-Corp / LLC</li>
-                        <li><i class="fas fa-circle text-[6px] mr-2 align-middle"></i> Complex Structure</li>
-                        <li><i class="fas fa-circle text-[6px] mr-2 align-middle"></i> Multi-Form Filing</li>
+                        <li><i class="fas fa-circle text-[6px] mr-2 align-middle"></i> <span lang="en">S-Corp / LLC</span><span lang="es">S-Corp / LLC</span></li>
+                        <li><i class="fas fa-circle text-[6px] mr-2 align-middle"></i> <span lang="en">Complex Structure</span><span lang="es">Estructura Compleja</span></li>
+                        <li><i class="fas fa-circle text-[6px] mr-2 align-middle"></i> <span lang="en">Multi-Form Filing</span><span lang="es">Declaración Multi-Forma</span></li>
                     </ul>
                 </div>
             </div>
@@ -258,74 +320,108 @@
                 <div class="bg-blue-50 p-8 rounded-3xl border border-blue-100">
                     <h4 class="text-blue-900 font-black uppercase tracking-wider mb-4 flex items-center gap-2">
                         <i class="fas fa-file-invoice-dollar"></i>
-                        Additional Items
+                        <span lang="en">Additional Items</span>
+                        <span lang="es">CARGOS ADICIONALES</span>
                     </h4>
                     <ul class="text-sm font-bold text-blue-800 space-y-3">
                         <li class="flex justify-between border-b border-blue-200 pb-2">
-                            <span>Additional Forms</span>
-                            <span class="text-emerald-600">$25 – $50 /form</span>
+                            <span lang="en">Additional Forms</span><span lang="es">Formularios Adicionales</span>
+                            <span class="text-emerald-600">$25 – $50 <span lang="en">/form</span><span lang="es">/forma</span></span>
                         </li>
                         <li class="flex justify-between border-b border-blue-200 pb-2">
-                            <span>Admin/Processing Fee</span>
+                            <span lang="en">Admin/Processing Fee</span><span lang="es">Tarifa Administrativa</span>
                             <span class="text-emerald-600">$150 – $165</span>
                         </li>
                     </ul>
                     <p class="mt-4 text-xs text-blue-600 italic">
-                        The admin fee covers secure document handling, compliance review, software usage, and IRS submission.
+                        <span lang="en">The admin fee covers secure document handling, compliance review, software usage, and IRS submission.</span>
+                        <span lang="es">La tarifa administrativa cubre el manejo seguro de documentos, revisión de cumplimiento, uso de software y envío al IRS.</span>
                     </p>
                 </div>
                 
                 <div class="bg-emerald-50 p-8 rounded-3xl border border-emerald-100 flex flex-col justify-center">
                     <p class="text-emerald-900 font-bold mb-6 italic leading-relaxed">
-                        <span lang="en">"Final pricing depends on the complexity of your return, number of forms, and business structure. If you’d like an exact quote, feel free to book a consultation or reply <strong>TAX</strong> and I’ll assist you."</span>
+                        <span lang="en">"Final pricing depends on the complexity of your return, number of forms, and business structure. If you’d like an exact quote, feel free to book a consultation or reply <strong>TAX</strong>."</span>
                         <span lang="es">"El precio final depende de la complejidad de su declaración, el número de formularios y la estructura de su negocio. Para una cotización exacta, reserve una consulta o responda <strong>TAX</strong>."</span>
                     </p>
                     <a href="https://form.jotform.com/253015681932860" target="_blank" class="bg-emerald-600 text-white text-center py-4 rounded-xl font-black hover:bg-emerald-700 transition shadow-lg">
-                        Get Your Exact Quote
+                        <span lang="en">Get Your Exact Quote</span>
+                        <span lang="es">Obtener mi Cotización Exacta</span>
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Process Section -->
-    <section id="process" class="py-24 bg-blue-900 text-white">
+    <!-- How It Works Section -->
+    <section id="process" class="py-24 bg-blue-900 text-white scroll-mt-20">
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-black uppercase italic">The Process</h2>
-                <p class="text-blue-300 font-bold mt-2">Professional tax preparation in three easy steps</p>
+                <h2 class="text-4xl font-black uppercase italic">
+                    <span lang="en">How It Works</span>
+                    <span lang="es">CÓMO FUNCIONA</span>
+                </h2>
+                <p class="text-blue-300 font-bold mt-2 uppercase tracking-wide">
+                    <span lang="en">Professional tax preparation in three easy steps</span>
+                    <span lang="es">Preparación profesional en tres sencillos pasos</span>
+                </p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
                 <div class="text-center relative z-10">
                     <div class="w-20 h-20 bg-emerald-500 text-white rounded-full flex items-center justify-center text-3xl font-black mx-auto mb-6 border-8 border-blue-800">1</div>
-                    <h4 class="text-xl font-black mb-4 uppercase">Upload Documents</h4>
-                    <p class="text-blue-100 px-4">Securely upload your tax documents to our encrypted portal from anywhere in the US.</p>
+                    <h4 class="text-xl font-black mb-4 uppercase italic">
+                        <span lang="en">Upload Documents</span>
+                        <span lang="es">SUBIR DOCUMENTOS</span>
+                    </h4>
+                    <p class="text-blue-100 px-4">
+                        <span lang="en">Securely upload your tax documents to our encrypted portal from anywhere in the US.</span>
+                        <span lang="es">Suba sus documentos de forma segura a nuestro portal cifrado desde cualquier lugar de EE. UU.</span>
+                    </p>
                 </div>
                 <div class="text-center relative z-10">
                     <div class="w-20 h-20 bg-emerald-500 text-white rounded-full flex items-center justify-center text-3xl font-black mx-auto mb-6 border-8 border-blue-800">2</div>
-                    <h4 class="text-xl font-black mb-4 uppercase">Expert Review</h4>
-                    <p class="text-blue-100 px-4">Our professionals analyze your data to find every legal deduction and maximize your return.</p>
+                    <h4 class="text-xl font-black mb-4 uppercase italic">
+                        <span lang="en">Expert Review</span>
+                        <span lang="es">REVISIÓN EXPERTA</span>
+                    </h4>
+                    <p class="text-blue-100 px-4">
+                        <span lang="en">Our professionals analyze your data to find every legal deduction and maximize your return.</span>
+                        <span lang="es">Nuestros profesionales analizan sus datos para encontrar cada deducción legal y maximizar su reembolso.</span>
+                    </p>
                 </div>
                 <div class="text-center relative z-10">
                     <div class="w-20 h-20 bg-emerald-500 text-white rounded-full flex items-center justify-center text-3xl font-black mx-auto mb-6 border-8 border-blue-800">3</div>
-                    <h4 class="text-xl font-black mb-4 uppercase">Digital Filing</h4>
-                    <p class="text-blue-100 px-4">Review your final return digitally, e-sign, and we handle the rest with the IRS.</p>
+                    <h4 class="text-xl font-black mb-4 uppercase italic">
+                        <span lang="en">Digital Filing</span>
+                        <span lang="es">PRESENTACIÓN DIGITAL</span>
+                    </h4>
+                    <p class="text-blue-100 px-4">
+                        <span lang="en">Review your final return digitally, e-sign, and we handle the rest with the IRS.</span>
+                        <span lang="es">Revise su declaración final digitalmente, firme electrónicamente y nosotros nos encargamos del IRS.</span>
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact CTA Section -->
-    <section class="py-24 bg-white">
+    <!-- Contact CTA / Contact Us Section -->
+    <section id="contact" class="py-24 bg-white scroll-mt-20">
         <div class="max-w-7xl mx-auto px-4 text-center">
             <div class="max-w-4xl mx-auto bg-slate-900 rounded-[3rem] p-12 md:p-20 text-white relative overflow-hidden shadow-2xl">
                 <div class="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full -mr-32 -mt-32"></div>
-                <h2 class="text-3xl md:text-5xl font-black mb-8 uppercase leading-tight italic">Ready to optimize <br><span class="text-emerald-400">your taxes?</span></h2>
-                <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">Schedule a free consultation to discuss your specific needs. No pressure, just professional advice.</p>
+                <h2 class="text-3xl md:text-5xl font-black mb-8 uppercase leading-tight italic">
+                    <span lang="en">Ready to optimize <br><span class="text-emerald-400">your taxes?</span></span>
+                    <span lang="es">¿LISTO PARA OPTIMIZAR <br><span class="text-emerald-400">SUS IMPUESTOS?</span></span>
+                </h2>
+                <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
+                    <span lang="en">Schedule a free consultation to discuss your specific needs. No pressure, just professional advice.</span>
+                    <span lang="es">Programe una consulta gratuita para discutir sus necesidades específicas. Sin presión, solo asesoramiento profesional.</span>
+                </p>
                 <div class="flex flex-col sm:flex-row gap-6 justify-center">
                     <a href="https://form.jotform.com/253015681932860" target="_blank" class="bg-yellow-400 text-blue-900 px-12 py-5 rounded-2xl font-black text-xl hover:bg-yellow-500 transition shadow-xl flex items-center justify-center gap-3">
                         <i class="far fa-calendar-check"></i>
-                        Book Online Now
+                        <span lang="en">Book Online Now</span>
+                        <span lang="es">Reservar en Línea</span>
                     </a>
                     <a href="tel:7608198216" class="border-2 border-white/20 hover:bg-white/5 px-12 py-5 rounded-2xl font-black text-xl transition flex items-center justify-center gap-3">
                         <i class="fas fa-phone-alt"></i>
@@ -347,28 +443,37 @@
                     <text x="155" y="78" font-family="Montserrat, sans-serif" font-size="62" font-weight="900" fill="white">JMG <tspan fill="#10b981">TAX</tspan></text>
                     <text x="155" y="118" font-family="Montserrat, sans-serif" font-size="30" font-weight="600" fill="#94a3b8" letter-spacing="4">SERVICE</text>
                 </svg>
-                <p class="text-gray-400 font-medium">Professional tax preparation and strategic consulting services. Nationwide virtual support with bank-level security.</p>
+                <p class="text-gray-400 font-medium">
+                    <span lang="en">Professional tax preparation and strategic consulting services. Nationwide virtual support with bank-level security.</span>
+                    <span lang="es">Preparación de impuestos profesional y servicios de consultoría estratégica. Soporte virtual nacional con seguridad de nivel bancario.</span>
+                </p>
             </div>
             <div class="text-center lg:text-left">
-                <h4 class="text-emerald-400 font-black uppercase tracking-widest mb-8">Quick Links</h4>
-                <div class="flex flex-col space-y-4 font-bold">
-                    <a href="#services" class="hover:text-emerald-500 transition">Our Services</a>
-                    <a href="#fees" class="hover:text-emerald-500 transition">Service Fees</a>
-                    <a href="#process" class="hover:text-emerald-500 transition">How It Works</a>
-                    <a href="https://form.jotform.com/253015681932860" target="_blank" class="hover:text-emerald-500 transition">Book Appointment</a>
+                <h4 class="text-emerald-400 font-black uppercase tracking-widest mb-8">
+                    <span lang="en">Quick Links</span>
+                    <span lang="es">ENLACES RÁPIDOS</span>
+                </h4>
+                <div class="flex flex-col space-y-4 font-bold text-gray-300">
+                    <a href="#services" class="hover:text-emerald-500 transition"><span lang="en">Our Services</span><span lang="es">Servicios</span></a>
+                    <a href="#fees" class="hover:text-emerald-500 transition"><span lang="en">Service Fees</span><span lang="es">Tarifas</span></a>
+                    <a href="#process" class="hover:text-emerald-500 transition"><span lang="en">How It Works</span><span lang="es">Cómo Funciona</span></a>
+                    <a href="#contact" class="hover:text-emerald-500 transition"><span lang="en">Contact Us</span><span lang="es">Contacto</span></a>
                 </div>
             </div>
             <div class="text-center lg:text-left">
-                <h4 class="text-emerald-400 font-black uppercase tracking-widest mb-8">Contact & Support</h4>
+                <h4 class="text-emerald-400 font-black uppercase tracking-widest mb-8">
+                    <span lang="en">Contact & Support</span>
+                    <span lang="es">CONTACTO Y SOPORTE</span>
+                </h4>
                 <div class="space-y-4 font-bold">
                     <p class="flex items-center justify-center lg:justify-start gap-3"><i class="fas fa-phone text-emerald-500"></i> (760) 819-8216</p>
                     <p class="flex items-center justify-center lg:justify-start gap-3"><i class="fas fa-envelope text-emerald-500"></i> info@jmgtaxservice.com</p>
-                    <p class="flex items-center justify-center lg:justify-start gap-3"><i class="fas fa-globe text-emerald-500"></i> Nationwide Service</p>
+                    <p class="flex items-center justify-center lg:justify-start gap-3"><i class="fas fa-globe text-emerald-500"></i> <span lang="en">Nationwide Service</span><span lang="es">Servicio Nacional</span></p>
                 </div>
             </div>
         </div>
         <div class="max-w-7xl mx-auto px-4 text-center pt-10 text-gray-500 text-xs font-black uppercase tracking-widest">
-            © 2026 JMG Tax Service. Precision • Integrity • Results.
+            © 2026 JMG Tax Service. <span lang="en">Precision • Integrity • Results.</span><span lang="es">PRECISIÓN • INTEGRIDAD • RESULTADOS.</span>
         </div>
     </footer>
 
